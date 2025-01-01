@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JIK Home Services</title>
-    <link rel="icon" href="/resources/favicon/favicon.ico">
+    <link rel="icon" href="resources/favicon/favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +45,7 @@
                         <img src="resources/man poainting.png" alt="man painting">
                     </div>
                     <div>
-
+                        <h3>Interior / Exterior Painting</h3>
                     </div>
                 </article>
                 <article> 
@@ -54,7 +54,7 @@
                         <img src="resources/man washig window.png" alt="man painting">
                    </div>
                    <div>
-
+                        <h3>Windows Cleaning</h3>
                    </div>
                 </article>
                 <article>
@@ -63,7 +63,7 @@
                         <img src="resources/woman cleaning.png" alt="man painting">
                    </div>
                     <div>
-
+                        <h3>Residential Cleaning</h3>
                     </div>
                 </article>
             </div>
@@ -102,35 +102,51 @@
             <img src="" alt="">
             <img src="" alt="">
         </section> -->
-        <section>
+        <section class="about-us">
             <h2>Get to know us better</h2>
-            <div>
-                <div>
+            <div class="projects-cluster">
+                <div>    
                     <div>
-                        <h3>Project One</h3>
-                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, modi.</p>
-                        <button>Show More</button>
-                        <img src="" alt="">
+                        <div class="project-content">
+                            <h3>Project One</h3>
+                            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, modi.</p>
+                            <button>Show More</button>
+                        </div>
+                        <div class="about-project-image">
+                            <img src="resources/project one.jpeg" alt="">
+                        </div>
                     </div>
                     <div>
-                        <h3>Project Tewo</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, iure.</p>
-                        <button>Show More</button>
-                        <img src="" alt="">
+                        <div class="project-content">
+                            <h3>Project Two</h3>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, iure.</p>
+                            <button>Show More</button>
+                        </div>
+                        <div class="about-project-image">
+                            <img src="resources/project five.jpeg" alt="">
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <h3>Project Three</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, id?</p>
+                    <div class="project-content">
+                        <h3>Project Three</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, id?</p>
                     <button>Show More</button>
-                    <img src="" alt="">
+                    </div>
+                    <div class="about-project-image">
+                        <img src="resources/project two.jpeg" alt="">
+                    </div>
                 </div>
             </div>
             <div>
-                <h3>Project Four</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, magni!</p>
-                <button>Show More</button>
-                <img src="" alt="">
+                <div class="project-content">
+                    <h3>Project Four</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, magni!</p>
+                    <button>Show More</button>
+                </div>
+                <div class="about-project-image">
+                    <img src="resources/project three.jpeg" alt="">
+                </div>
             </div>
         </section>
         <section>
@@ -139,7 +155,7 @@
     </main>
     <footer>
         <section>
-            <p>copyright</p>
+            <p>copyright &copy <span id="copyright-year"></span></p>
         </section>
     </footer>
     <script src="script.js"></script>

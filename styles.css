@@ -169,11 +169,6 @@ main {
     max-width: 1200px;
     /* background-color: rgba(255, 0, 0, 0.23); */
 }
-footer{
-    background-color: #000;
-    color: #fff;
-    width: 100%;
-}
 
 main .banner{
     margin: 150px 0px 100px 0px;
@@ -191,8 +186,9 @@ main .project-banner img{
     top: -200px;
 }
 
-main .services h2{
+main .services h2, main .projects h2, main .about-us h2{
     text-align: center;
+    font-size: 2rem;
 }
 main .services > div{
     display: flex;
@@ -205,23 +201,24 @@ main .services article{
     border: 1px solid #eee;
     width: 380px;
     height: 200px;
-    overflow: hidden;
 }
 
-main .services article div{
-    transition: 0.3s;
+main .services article div:first-child{
+    cursor: pointer;  
     margin: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+
 }
 
-main .services article:hover div{
-    cursor: pointer;  
+main .services article div:first-child:hover img{
     transition: 0.3s;
     transform: scale(1.1);  
 }
 
 main .services article img{
+    transition: 0.3s;
     position: relative;
     width: 100%;
 }
@@ -234,6 +231,17 @@ main .services article .filter{
     width: 100%;
     height: 100%;
     z-index: 1;
+}
+
+main .services article div:last-child{
+    padding: 25px;
+    text-align: center;
+    color: #000;
+    z-index: 10;
+}
+
+main .projects{
+    margin-bottom: 100px;;
 }
 
 main .projects > div{
@@ -268,4 +276,104 @@ main .projects > div > div:last-child{
 main .projects > div:first-child{
     /* flex-direction: row-reverse; */
     background-color: red;
+}
+
+main .about-us {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+main .about-us .projects-cluster{
+    display: flex;
+    gap: 50px;
+    
+}
+
+main .about-us .projects-cluster > div{
+    display: flex;
+}
+
+main .about-us .projects-cluster > div:first-child > div, 
+main .about-us .projects-cluster > div:last-child {
+    background-color: #eee;
+}
+
+main. .about-us .project-content{
+    display: flex;
+}
+
+main .about-us .projects-cluster > div:first-child{
+    position: relative;
+    width: 50%;
+    flex-direction: column;
+    gap: 50px;
+}
+
+main .about-us .projects-cluster> div:first-child > div{
+    height: 250px;
+    display: flex;
+}
+.about-us .projects-cluster > div:first-child .about-project-image{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-us .projects-cluster > div:first-child .about-project-image img{
+    width: 100%;
+    transform: scale(1.5);
+}
+
+/* main .about-us .projects-cluster> div:first-child > div{} */
+
+
+main .about-us .projects-cluster> div:last-child{
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main .about-us .projects-cluster> div:last-child .about-project-image{
+    height: 70%;
+    overflow: hidden;
+}
+
+main .about-us .projects-cluster> div:last-child img{
+    width: 100%;
+}
+
+main .about-us > div:last-child{
+    background-color: #eee;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 400px;
+    overflow: hidden;
+}
+
+main .about-us > div:last-child .about-project-image{
+    height: 100%;
+}
+
+main .about-us > div:last-child .about-project-image img{
+    position: relative;
+    top: -40px;
+}
+
+main .about-us > div:last-child .project-content{
+    padding-left: 50px;
+}
+
+footer{
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    height: 100px;
+}
+
+footer section{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
