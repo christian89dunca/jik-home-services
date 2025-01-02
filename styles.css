@@ -12,6 +12,16 @@ body{
     letter-spacing: 2px;
 }
 
+h1{
+    display: flex;
+    flex-direction: column;align-items: center;
+    letter-spacing: 4px;
+    font-size: 3rem;
+    max-width: 800px;
+    text-align: center;
+    margin: 25px;
+}
+
 h3{
     font-size: 2.5rem;
 }
@@ -20,16 +30,7 @@ h4{
     font-size: 1.3rem;
 }
 
-header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-}
-
-header nav {
+nav {
     transition: 0.3s;
     position: sticky;
     top: 0;
@@ -38,25 +39,27 @@ header nav {
     height: 90px;
     z-index: 10;
     color: white;
+    display: flex;
+    justify-content: space-between;
 }
 
-header nav.nav-scrolled{
+nav.nav-scrolled{
     transition: 0.3s;
     background-color: rgba(255, 255, 255, 1);
     color: #333;
 }
-header nav .logo-container{
+nav .logo-container{
     position: relative;
     display: flex;
     justify-content: flex-start;
     height: 100%;
 }
 
-header nav .logo-container .img{
-    width: 80px;
+nav .logo-container .img{
+    width: 60px;
 }
 
-header nav .logo-container .img img{
+nav .logo-container .img img{
     position: absolute;
     top: 0;
     left: 0;
@@ -67,12 +70,12 @@ header nav .logo-container .img img{
     opacity: 0;
 }
 
-header nav .logo-container .img img.visible{
+nav .logo-container .img img.visible{
     transition: 0.3s;
     opacity: 1;
 }
 
-header nav .logo-container .txt{
+nav .logo-container .txt{
     box-sizing: border-box;
     padding: 15px;
     font-weight: 200;
@@ -82,21 +85,80 @@ header nav .logo-container .txt{
     align-items: center;
 }
 
-header nav .logo-container .txt p{
+nav .logo-container .txt p{
     font-family:Arial, Helvetica, sans-serif;
     font-weight: 900;
     letter-spacing: 10px;
-    font-size: 3rem;
+    font-size: 2.5rem;
 
 }
 
-header nav .logo-container .txt p + p{
+nav .logo-container .txt p + p{
     font-family: "Lato", serif;
     font-weight: 400;
     letter-spacing: 2px;
     font-size: 0.8rem;
 
 }
+
+nav .menu-container{
+    padding: 15px;
+    display: flex;
+}
+
+nav .menu-container .menu-icon{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+nav .menu-container .menu-icon:last-child{
+    margin-right:25px;
+}
+
+nav .menu-container .material-icons-outlined{
+    font-size: 2rem;
+}
+
+nav .menu-container .burger-menu{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+nav .menu-container .burger-menu > i{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+    height: 100%;
+    /* padding: 15px; */
+    box-sizing: border-box;
+    opacity: 0;
+    width: 100%;
+    text-align: center;
+}
+
+nav .menu-container .burger-menu > i.visible{
+    transition: 0.3s;
+    opacity: 1;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 100vw;
+    height: 90vh;
+}
+
 
 
 header .bg-header{
@@ -124,6 +186,7 @@ header .bg-header .bg-header-filter{
 
 header .content-header{
     position: absolute;
+    top: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -131,24 +194,18 @@ header .content-header{
     color: #fff;
 }
 
-header .content-header h1{
-    display: flex;
-    flex-direction: column;align-items: center;
-    letter-spacing: 4px;
-    font-size: 1rem;
-}
-
-header .content-header h1 span:first-child{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 900;
-    letter-spacing: 10px;
-    font-size: 4rem;
-}
-
 header .content-header p{
-    margin: 50px;
+    text-align: center;
+    margin: 10px;
     font-size: 1.7rem;
     font-weight: 300;
+}
+
+header .content-header p + p{
+    text-align: center;
+    margin: 10px;
+    font-size: 2.5rem;
+    font-weight: 500;
 }
 
 header .content-header button{
@@ -163,6 +220,7 @@ header .content-header button{
     font-weight: bold;
     max-width: 400px;
     align-self: center;
+    margin: 50px auto;
 }
 
 header .content-header button:hover{
