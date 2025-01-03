@@ -51,7 +51,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
             const selectedElement = data.find(element => element[service])
             console.log(selectedElement[service]);
 
-            menuDetailsBox.innerHTML = `<div>
+            if(selectedElement[service].quote){
+                console.log(selectedElement[service].quote);
+                menuDetailsBox.innerHTML = `<div>
                 <h2>${selectedElement[service].title.toUpperCase()}</h2>
                 <h3>${selectedElement[service].subTitle}</h3>
                 <div class="service-steps"> ` + 
@@ -87,6 +89,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     </div>
                     </div>
                     </div>`
+            } else{
+                menuDetailsBox.innerHTML = `<div class=contactBox>
+                <h2>${selectedElement[service].title.toUpperCase()}</h2>
+                <h2>${selectedElement[service].subTitle.toUpperCase()}</h2>
+                <h3>${selectedElement[service].description}</h3>
+                </div>
+                `
+            }
+            
 
                     const tabsContent = Array.from(document.getElementsByClassName('tabContent'));
                     const menuTabs = Array.from(document.getElementsByClassName('menu-tab'));

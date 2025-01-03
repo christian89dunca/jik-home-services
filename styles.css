@@ -12,13 +12,18 @@ body{
     letter-spacing: 2px;
 }
 
+.mb-50{
+    margin-bottom: 50px;
+}
+
 .no-scroll {
     overflow: hidden;
   }
 
 h1{
     display: flex;
-    flex-direction: column;align-items: center;
+    flex-direction: column;
+    align-items: center;
     letter-spacing: 4px;
     font-size: 3rem;
     max-width: 800px;
@@ -266,6 +271,7 @@ nav .menu-container .burger-menu > i.visible{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
 #menu-opened .menu-details > div:first-child{
@@ -318,6 +324,11 @@ nav .menu-container .burger-menu > i.visible{
 #menu-opened .menu-details .service-steps .stepsBox{
     display: flex;
     justify-content: space-between;
+}
+
+#menu-opened .menu-details .service-steps .stepsBox .menu-tab{
+    margin: 0 auto;
+    align-self: center;
 }
 
 #menu-opened .menu-details .service-steps .stepBox .current-step{
@@ -415,6 +426,29 @@ nav .menu-container .burger-menu > i.visible{
 
 #menu-opened .menu-details .light-grey{
     background: #f7f7f7
+}
+
+#menu-opened .contactBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#menu-opened .contactBox h2:first-child{
+    font-style: italic;
+    color: #555;
+}
+
+#menu-opened .contactBox h2{
+    font-size: 4rem;
+}
+
+#menu-opened .contactBox h3{
+    font-size: 2rem;
+    font-weight: 400;
+    color: #555;
 }
 
 header{
@@ -518,7 +552,7 @@ main .project-banner img{
     top: -200px;
 }
 
-main .services h2, main .projects h2, main .about-us h2{
+main .services h2, main .projects h2, main .about-us h2, main .contact h2{
     text-align: center;
     font-size: 2.5rem;
 }
@@ -615,6 +649,7 @@ main .about-us {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    margin-bottom: 100px;
 }
 
 main .about-us button{
@@ -710,16 +745,107 @@ main .about-us .project-content{
     padding: 15px;
 }
 
+main .contact .contact-content{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 50px 0;
+}
+
+main .contact .contact-content .contact-details{
+    box-sizing: border-box;
+    width: 400px;
+    min-width: 400px;
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+main .contact .contact-content .contact-details h3{
+    margin-bottom: 15px;
+}
+
+main .contact .contact-content .contact-message{
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+main .contact .contact-content .form-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+main .contact .contact-content .form-container input,
+main .contact .contact-content .form-container textarea{
+    padding: 10px;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+main .contact .contact-content .form-container > input,
+main .contact .contact-content .form-container > div {
+    margin-bottom: 10px;
+    flex: 1;
+}
+
+main .contact .contact-content .form-container > div{
+    gap: 10px;
+    display: flex;
+}
+
+main .contact .contact-content .form-container > div > *{
+
+    flex: 1;
+}
+
+main .contact .contact-content .form-container textarea{
+    resize: none;
+}
+
+main .contact .contact-content .form-container button{
+    width: 100%;
+    margin-top: 25px;
+    background-color: #333;
+    color: #fff;
+}
+
+main .contact .contact-content .form-container button:hover{
+    background-color: #777;
+}
+
 footer{
     background-color: #000;
     color: #fff;
     width: 100%;
     height: 100px;
+    z-index: 10;
 }
 
 footer section{
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+}
+
+footer .some{
+    margin:25px 0;
+} 
+
+footer .some ul{
+    display: flex;
+    list-style: none;
+}
+
+footer .some ul li{
+   cursor: pointer;
+}
+
+footer .some a{
+    text-decoration: none;
+    margin: 25px;
+    color: #fff;
 }

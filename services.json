@@ -4,6 +4,7 @@
             "title": "Exterior Painting",
             "subTitle": "How we can help",
             "image": "resources/construction_project_1.jpeg",
+            "quote": true,
             "steps": [
                 {
                     "step": "1",
@@ -31,7 +32,8 @@
         "interior": {
             "title": "Interior Painting",
             "subTitle": "The Constultation",
-            "image": "resources/placeholder-image.jpg",
+            "image": "resources/painting_remodel_project.jpeg",
+            "quote": true,
             "steps": [
                 {
                     "step": "1",
@@ -58,5 +60,126 @@
                 }
             ]
         }
+    },
+    {
+        "houseWashing": {
+            "title": "House Washing",
+            "subTitle": "How we can help",
+            "image": "resources/house_washing.jpeg",
+            "quote": true,
+            "steps": [
+                {
+                    "step": "1",
+                    "stepTitle": "The Prep Work",
+                    "stepDescription": "Once the area is covered and protected, our painting crew will prepare each wall for paint. This includes filling holes and cracks, sealing water stains, covering scuff marks, and sanding rough surfaces. We'll also remove old paint and wallpaper to create a blank canvas ready for a fresh coat to adhere to perfectly"
+                },
+                {
+                    "step": "2",
+                    "stepTitle": "Surface Prep",
+                    "stepDescription": "Once the area is covered and protected, our painting crew will prepare each wall for paint. This includes filling holes and cracks, sealing water stains, covering scuff marks, and sanding rough surfaces. We'll also remove old paint and wallpaper to create a blank canvas ready for a fresh coat to adhere to perfectly"
+                }, {
+                    "step": "3",
+                    "stepTitle": "Time to Paint",
+                    "stepDescription": "When it's time to paint, our interior house painters will apply high-quality paint in even layers in the color and finish you selected. The amount of time it takes to paint your interior space depends on the size of your room, but you'll be fully informed of our expected timeline during the initial consultation."
+                }, {
+                    "step": "4",
+                    "stepTitle": "Clean-up",
+                    "stepDescription": "We'll work quickly to finish the job, and your paint will dry before you know it. At this point, our residential painters will remove the plastic protective sheets and drop cloths, painting supplies, and other necessary tools. Once they're out of your home, we'll sweep and clean the area so it looks better than when we arrived."
+                }
+            ]
+        }
+    },
+    {
+        "solarPanelsWashing": {
+            "title": "Solar Pannels Washing",
+            "subTitle": "How we can help",
+            "image": "resources/solar_pannels_washng.jpeg",
+            "quote": true,
+            "steps": [
+                {
+                    "step": "20%",
+                    "stepTitle": "more efficiency",
+                    "stepDescription": "Our solar panel cleaning service maximizes your energy efficiency by keeping your panels spotless and fully operational"
+                }
+            ]
+        }
+    },
+    {
+        "pressureWashing": {
+            "title": "Presure Washing",
+            "subTitle": "How we can help",
+            "image": "resources/project three.jpeg",
+            "quote": true,
+            "steps": [
+                {
+                    "step": "",
+                    "stepTitle": "A brand new look",
+                    "stepDescription": "Think of the beating the outside of your home takes, even in sunny Phoenix. Monsoon winds and rain really do a number on your walls, as do bugs and animals, not to mention the pollution that accumulates over time. Your roof and awnings take even more abuse than your home’s walls do"
+                }
+            ]
+        }
+    },
+    {
+        "windowCleaning": {
+            "title": "Window Cleaning",
+            "subTitle": "How we can help",
+            "image": "resources/man washig window.png",
+            "quote": true,
+            "steps": [
+                {
+                    "step": "",
+                    "stepTitle": "Crystal clear views",
+                    "stepDescription": "Our expert window cleaning service ensures streak-free, spotless windows, allowing natural light to flood your interior spaces"
+                }
+            ]
+        }
+    },
+    {
+        "residential": {
+            "title": "Residential Cleaning",
+            "subTitle": "Apartments, condos, penthouses, mansions, and more!",
+            "image": "resources/project four.jpeg",
+            "quote": true,
+            "steps": [
+                {
+                    "step": "",
+                    "stepTitle": "Deep Cleaning",
+                    "stepDescription": "The referred cleaners can do a deep detailed cleaning including things not included in a standard cleaning like baseboards and more!"
+                },
+                {
+                    "step": "",
+                    "stepTitle": "Subscription",
+                    "stepDescription": "We can schedule a weekly, bi-monthly or monthly cleaning calendar that fits your needs best and have your house regularly cleaned by our professionals"
+                }, {
+                    "step": "",
+                    "stepTitle": "Move In/Out Cleaning",
+                    "stepDescription": "If you’re moving in or moving out of a home, the referred cleaners can make it look brand new for you!"
+                }
+            ]
+        }
+    },
+    {
+        "commercial": {
+            "title": "Commercial Cleaning",
+            "subTitle": "How we can help",
+            "image": "resources/ofice_cleaning.jpeg",
+            "quote": true,
+            "steps": [
+                {
+                    "step": "",
+                    "stepTitle": "",
+                    "stepDescription": "The referred cleaners can clean your office, or commercial space one time or on a recurring basis"
+                }
+            ]
+        }
+    },
+    {
+        "giveusacall": {
+            "title": "Call Us",
+            "subTitle": "(480) 652 - 4898",
+            "description": "we stand ready to help you with your next projects",
+            "quote": false
+        }
     }
+    
 ]

@@ -48,8 +48,8 @@
                 <ul>
                     <li><span class="menu-item">House Washing</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
                     <li><span class="menu-item">Solar Panels Washing</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
-                    <li><span class="menu-item">Presure Washing</span> <i class="material-icons-outlined">arrow_forward_ios</i></li>
-                    <li><span class="menu-item">Windinw Cleaning</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
+                    <li><span class="menu-item">Pressure Washing</span> <i class="material-icons-outlined">arrow_forward_ios</i></li>
+                    <li><span class="menu-item">Window Cleaning</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
                 </ul>
                 <li>Cleaning</li>
                 <ul>
@@ -57,6 +57,9 @@
                     <li><span class="menu-item">Commercial</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
                 </ul>
                 <li>Contact</li>
+                <ul>
+                    <li class="mb-50"><span class="menu-item">Give us a call</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
+                </ul>
             </ul>
             
         </div>
@@ -191,60 +194,80 @@
                 </div>
             </div>
         </section>
-        <section>
+        <section class="contact">
+            <h2>CONTACT</h2>
             <!-- Contact icons -->
+            <div class="contact-content">
+                <div class="contact-details">
+                    <h3>Give us a call</h3>
+                    <h3>(480) 652 - 4898</h3>
+                    <p>or leave us a message</p>
+                </div>
+                <div class="contact-form">
+                    <div>
+                        <div class="contact-message">
+                        <p>
+                            Let us handle your projects so you can rest assure you're going to get the best quality workmenship
+                        </p>
+                        </div>
+                    </div>
+                    <div class="form-container">
+                        <input
+                        id="fullName"
+                        type="text"
+                        placeholder="Full Name"
+                        required
+                        />
+                        <div>
+                            <input id="email" type="email" placeholder="e-mail" required />
+                            <input
+                                id="phone"
+                                type="phone"
+                                placeholder="Phone Number"
+                                required
+                            />
+                        </div>
+                        <input
+                        id="address"
+                        type="text"
+                        placeholder="Address"
+                        required
+                        />
+                        <textarea
+                        id="message"
+                        name=""
+                        id=""
+                        cols="30"
+                        rows="10"
+                        placeholder="Your message for us"
+                        required
+                        ></textarea>
+                        <button onclick="sendMail()">Send</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
-        <section>
-            <div>
-                shortcuts
-            </div>
-            <div id="contact">
-                <div class="contact-form">
-                <div>
-                    <h2>Contact</h2>
-                    <div class="contact-message">
-                    <p>
-                        Let us help you build a brand of beauty and quality that your
-                        clients will intuitively perceive
-                    </p>
-                    </div>
-                </div>
-                <div class="form-container">
-                    <input
-                    id="fullName"
-                    type="text"
-                    placeholder="Full Name"
-                    required
-                    />
-                    <div>
-                    <input id="email" type="email" placeholder="e-mail" required />
-                    <input
-                        id="phone"
-                        type="phone"
-                        placeholder="Phone Number"
-                        required
-                    />
-                    </div>
-                    <textarea
-                    id="message"
-                    name=""
-                    id=""
-                    cols="30"
-                    rows="10"
-                    placeholder="Your message for us"
-                    required
-                    ></textarea>
-                    <button onclick="sendMail()">Send</button>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section>
-            <p>copyright &copy <span id="copyright-year"></span></p>
-        </section>
-    </footer>
+    <section class="some">
+        <ul>
+          <li>
+            <a href="#">facebook</a>
+          </li>
+          <li>
+            <a href="#">instagram</a>
+          </li>
+          <li>
+            <a href="#">tiktok</a>
+          </li>
+          <li>
+            <a href="#">youtube</a>
+          </li>
+        </ul>
+      </section>
+      <section class="copyright">
+        <p>Copyright &copy JIK Home Services <span id="copyright-year"></span></p>
+      </section>
     <script src="script.js"></script>
 </body>
 </html>
