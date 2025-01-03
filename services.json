@@ -1,0 +1,62 @@
+[
+    {
+        "exterior" : {
+            "title": "Exterior Painting",
+            "subTitle": "How we can help",
+            "image": "resources/construction_project_1.jpeg",
+            "steps": [
+                {
+                    "step": "1",
+                    "stepTitle": "Cover the area",
+                    "stepDescription": "We don’t want dust or paint getting where it doesn’t need to be. Our house painters’ first step is to lay drop cloths and plastic over the floors and furniture in the space we are painting."
+                },
+                {
+                    "step": "2",
+                    "stepTitle": "Prep the Walls",
+                    "stepDescription": "Our expert house painters will next apply your quality paint. The time of this step depends on the surface and the paint, but our painters will make sure to work quickly and efficiently."
+                }, 
+                {
+                    "step": "3",
+                    "stepTitle": "Apply new paint",
+                    "stepDescription": "Since a smooth wall surface makes for better paint adhesion, our house painters will then prep the surfaces before painting."
+                }, {
+                    "step": "4",
+                    "stepTitle": "Clean-up",
+                    "stepDescription": "We want to make sure your house looks like new and that includes our house painters cleaning up after our paint job."
+                }
+            ]
+        }
+    },
+    {
+        "interior": {
+            "title": "Interior Painting",
+            "subTitle": "The Constultation",
+            "image": "resources/placeholder-image.jpg",
+            "steps": [
+                {
+                    "step": "1",
+                    "stepTitle": "The Prep Work",
+                    "stepDescription": "Before we begin, our interior painters will cover the floors and furniture in your room with protective plastic sheeting. We'll also use drop cloths to protect your floors from paint drips. You can rest assured that we'll keep your belongings safe throughout the process—and paint will only be applied where we want it to go."
+                },
+                {
+                    "step": "2",
+                    "stepTitle": "Surface Prep",
+                    "stepDescription": "Once the area is covered and protected, our painting crew will prepare each wall for paint. This includes filling holes and cracks, sealing water stains, covering scuff marks, and sanding rough surfaces. We'll also remove old paint and wallpaper to create a blank canvas ready for a fresh coat to adhere to perfectly"
+                }, {
+                    "step": "3",
+                    "stepTitle": "Time to Paint",
+                    "stepDescription": "When it's time to paint, our interior house painters will apply high-quality paint in even layers in the color and finish you selected. The amount of time it takes to paint your interior space depends on the size of your room, but you'll be fully informed of our expected timeline during the initial consultation."
+                }, {
+                    "step": "4",
+                    "stepTitle": "Clean-up",
+                    "stepDescription": "We'll work quickly to finish the job, and your paint will dry before you know it. At this point, our residential painters will remove the plastic protective sheets and drop cloths, painting supplies, and other necessary tools. Once they're out of your home, we'll sweep and clean the area so it looks better than when we arrived."
+                },
+                {
+                    "step": "5",
+                    "stepTitle": "The Big Reveal",
+                    "stepDescription": "After our crew has completed their work and cleaned up the area, we'll do a final walk-through to ensure that it meets our high professional standards. Then, we'll show off your newly painted space. Once our crews leave, we'll send you a satisfaction survey to get feedback about our work and customer service"
+                }
+            ]
+        }
+    }
+]

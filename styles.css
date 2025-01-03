@@ -12,6 +12,10 @@ body{
     letter-spacing: 2px;
 }
 
+.no-scroll {
+    overflow: hidden;
+  }
+
 h1{
     display: flex;
     flex-direction: column;align-items: center;
@@ -28,6 +32,24 @@ h3{
 
 h4{
     font-size: 1.3rem;
+}
+
+button{
+    margin: 50px 0px;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+button:hover{
+    transition: 0.3s;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
 }
 
 nav {
@@ -136,7 +158,7 @@ nav .menu-container .burger-menu > i{
     position: absolute;
     top: 0;
     left: 0;
-    transition: 0.3s;
+    /* transition: 0.3s; */
     height: 100%;
     /* padding: 15px; */
     box-sizing: border-box;
@@ -146,15 +168,232 @@ nav .menu-container .burger-menu > i{
 }
 
 nav .menu-container .burger-menu > i.visible{
+    /* transition: 0.3s; */
+    opacity: 1;
+}
+
+#menu-opened{
+    transition: 0.3s;
+    position: fixed;
+    top:90px;
+    right:0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    opacity: 0;
+
+}
+
+#menu-opened > div{
+    height:100%;
+    position: absolute;
+    top: 0;
+}
+
+#menu-opened > div:first-child{
+    box-sizing: border-box; 
+    background-color: #fff;
+    width: 35%;
+    height:100%;
+    overflow: scroll;
+}
+
+#menu-opened > div:last-child{
+    box-sizing: border-box; 
+    background-color: #eee;
+    width: 65%;
+    right: 0;
+    height:100%;
+    overflow: scroll;
+}
+
+#menu-opened.visible{
     transition: 0.3s;
     opacity: 1;
+    z-index: 10;
+
+}
+
+#menu-opened .menu-tree{
+    box-sizing: border-box;
+    padding: 50px;
+    color: #666;
+}
+
+#menu-opened .menu-tree ul {
+    list-style: none;
+}
+
+#menu-opened .menu-tree > ul > li{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 0px;
+}
+
+#menu-opened .menu-tree li{
+    font-size: 1.5rem;
+    padding: 0.75rem 0px 0.75rem 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#menu-opened .menu-tree li i{
+    transition: 0.3s;
+    padding-right: 35px;
+}
+
+#menu-opened .menu-tree ul > ul li:hover{
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: #eee;
+    border-radius: 4px 0px 0px 4px;
+}
+
+#menu-opened .menu-tree .selected{
+    background-color: #eee;
+}
+#menu-opened .menu-tree .selected i{
+    transition: 0.3s;
+    padding: 0;
+}
+
+#menu-opened .menu-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+#menu-opened .menu-details h2{
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+#menu-opened .menu-details h3{
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+#menu-opened .menu-details button{
+    position: relative;
+    margin: 25px 0;
+}
+
+#menu-opened .menu-details .menu-img-container{
+    position: relative;
+    width: 600px;
+    height: 300px;
+    overflow: hidden;
+}
+
+#menu-opened .menu-details .menu-img-container img{
+    position: relative;
+    width: 100%;
+    top:-40%;
+}
+#menu-opened .menu-details .service-steps{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: center;
+    color: #999;
+}
+
+#menu-opened .menu-details .service-steps .stepsBox{
+    display: flex;
+    justify-content: space-between;
+}
+/* 
+#menu-opened .menu-details .service-steps .tabContentBox{
+
+} */
+
+#menu-opened .menu-details .service-steps .stepBox .current-step{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+#menu-opened .menu-details .service-steps .stepBox .current-step{
+    width: 100%;
+    height: 100%;
+    color: #333;
+}
+
+#menu-opened .menu-details .service-steps .menu-tab .ticker,
+#menu-opened .menu-details .service-steps .current-step .ticker{
+    position: relative;
+    bottom: 0px;   
+    left: 0;
+    width:100%;
+    height: 15px;
+    background-color: #fff;
+    opacity: 0;
+}
+
+#menu-opened .menu-details .service-steps .current-step .ticker{
+    opacity: 1;
+}
+
+
+#menu-opened .menu-details .service-steps span{
+    font-size: 1.5rem;
+}
+
+#menu-opened .menu-details .service-steps .menu-tab{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100px;
+    transition: 0.3s;
+    border-radius: 4px 4px 0px 0px;
+}
+#menu-opened .menu-details .service-steps .menu-tab.current-step{
+    color:#333;
+}
+#menu-opened .menu-details .service-steps .menu-tab:hover{
+    transition: 0.3s;
+    color:#333;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#menu-opened .menu-details .service-steps .tabContentBox{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#menu-opened .menu-details .service-steps .tabContent{
+    position: relative;
+    width: 100%;
+    left:0;
+    top: 0px;
+    padding: 25px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: none;
+}
+
+#menu-opened .menu-details .service-steps .tabContent.show{
+    display: block;
 }
 
 header{
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
     width: 100vw;
     height: 90vh;
 }
@@ -218,7 +457,7 @@ header .content-header button{
     margin-top: 0px;
     color: #fff;
     font-weight: bold;
-    max-width: 400px;
+    width: 400px;
     align-self: center;
     margin: 50px auto;
 }
@@ -320,23 +559,6 @@ main .projects > div{
 main .projects h3{
     margin-bottom: 25px;
     line-height: 0.7;;
-}
-main .projects button, main .about-us button{
-    margin: 50px 0px;
-    width: 200px;
-    padding: 10px;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 1.2rem;
-    transition: 0.3s;
-}
-
-main .projects button:hover, main .about-us button:hover{
-    transition: 0.3s;
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
 }
 
 main .projects > div:nth-child(2) > div:last-child{

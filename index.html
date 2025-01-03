@@ -30,22 +30,85 @@
                 <p>project(s)</p>
             </div>
             <div class="burger-menu menu-icon">
-                <i class="material-icons-outlined visible">menu</i>
-                <i class="material-icons-outlined">close</i>
+                <i id="closed-burger" class="material-icons-outlined visible">menu</i>
+                <i id="opened-burger" class="material-icons-outlined">close</i>
                 <p>menu</p>
             </div>
         </div>
     </nav>
+    <div id="menu-opened" class="visible">
+        <div class="menu-tree">
+            <ul>
+                <li>Painting</li>
+                <ul>
+                    <li class="selected"><span class="menu-item">Exterior</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
+                    <li><span class="menu-item">Interior</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
+                </ul>
+                <li>Exterior Cleaning</li>
+                <ul>
+                    <li><span class="menu-item">House Washing</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
+                    <li><span class="menu-item">Solar Panels Washing</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
+                    <li><span class="menu-item">Presure Washing</span> <i class="material-icons-outlined">arrow_forward_ios</i></li>
+                    <li><span class="menu-item">Windinw Cleaning</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
+                </ul>
+                <li>Cleaning</li>
+                <ul>
+                    <li><span class="menu-item">Residential</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
+                    <li><span class="menu-item">Commercial</span><i class="material-icons-outlined">arrow_forward_ios</i></li>
+                </ul>
+                <li>Contact</li>
+            </ul>
+            
+        </div>
+        <div id="menu-details" class="menu-details">
+            <!-- <h2>EXTERIOR PAINTING</h2>
+            <h3>How we can help</h3>
+            <div class="service-steps">
+                <div id="tab1" class="menu-tab current-step">
+                    <span>1</span>
+                    <p>Cover the area</p>
+                </div>
+                <div id="tab2" class="menu-tab">
+                    <span>2</span>
+                    <p>Prep the Walls</p>
+                </div>
+                <div id="tab3" class="menu-tab">
+                    <span>3</span>
+                    <p>Apply new paint</p>
+                </div>
+                <div id="tab4" class="menu-tab">
+                    <span>4</span>
+                    <p>Clean-Up</p>
+                </div>
+                <div id="tab1-content" class="tabcontent">
+                    We don’t want dust or paint getting where it doesn’t need to be. Our house painters’ first step is to lay drop cloths and plastic over the floors and furniture in the space we are painting.
+                </div>
+                <div id="tab1-content" class="tabcontent">
+                    Our expert house painters will next apply your quality paint. The time of this step depends on the surface and the paint, but our painters will make sure to work quickly and efficiently.
+                </div>
+                <div id="tab1-content" class="tabcontent">
+                    Since a smooth wall surface makes for better paint adhesion, our house painters will then prep the surfaces before painting.
+                </div>
+                <div id="tab1-content" class="tabcontent">
+                    We want to make sure your house looks like new and that includes our house painters cleaning up after our paint job.
+                </div>
+            </div>
+            <button>FREE QUOTE</button>
+            <div class="menu-img-container">
+                <img src="resources/placeholder-image.jpg" alt="">
+            </div> -->
+        </div>
+    </div>
     <header>
         <div class="bg-header">
             <div class="bg-header-filter"></div>
             <img src="resources/35_years_old_tradesman_at_work.jpeg" alt="background picture">
         </div>
         <div class="content-header">
-            <h1>Get an instant quote for your next project</h1>
+            <h1>Get a FREE quote for your next project within 1 hour</h1>
             <p>or give us a call</p>
             <p>(480) 652 - 4898</p>
-            <button>GET INSTANT QUOTE</button>
+            <button>GET FREE QUOTE</button>
             <!-- <button></button> -->
         </div>
     </header>
@@ -68,7 +131,7 @@
                         <img src="resources/man washig window.png" alt="man painting">
                    </div>
                    <div>
-                        <h4>Windows Cleaning</h4>
+                        <h4>Exterior Cleaning</h4>
                    </div>
                 </article>
                 <article>
@@ -77,7 +140,7 @@
                         <img src="resources/woman cleaning.png" alt="man painting">
                    </div>
                     <div>
-                        <h4>Residential Cleaning</h4>
+                        <h4>Residential / Commercial Cleaning</h4>
                     </div>
                 </article>
             </div>
@@ -168,6 +231,51 @@
         </section>
     </main>
     <footer>
+        <section>
+            <div>
+                shortcuts
+            </div>
+            <div id="contact">
+                <div class="contact-form">
+                <div>
+                    <h2>Contact</h2>
+                    <div class="contact-message">
+                    <p>
+                        Let us help you build a brand of beauty and quality that your
+                        clients will intuitively perceive
+                    </p>
+                    </div>
+                </div>
+                <div class="form-container">
+                    <input
+                    id="fullName"
+                    type="text"
+                    placeholder="Full Name"
+                    required
+                    />
+                    <div>
+                    <input id="email" type="email" placeholder="e-mail" required />
+                    <input
+                        id="phone"
+                        type="phone"
+                        placeholder="Phone Number"
+                        required
+                    />
+                    </div>
+                    <textarea
+                    id="message"
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder="Your message for us"
+                    required
+                    ></textarea>
+                    <button onclick="sendMail()">Send</button>
+                </div>
+            </div>
+            </div>
+        </section>
         <section>
             <p>copyright &copy <span id="copyright-year"></span></p>
         </section>
