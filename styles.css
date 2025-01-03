@@ -70,18 +70,19 @@ nav.nav-scrolled{
     background-color: rgba(255, 255, 255, 1);
     color: #333;
 }
-nav .logo-container{
+nav #logo-container{
     position: relative;
     display: flex;
     justify-content: flex-start;
     height: 100%;
+    cursor: pointer;
 }
 
-nav .logo-container .img{
+nav #logo-container .img{
     width: 60px;
 }
 
-nav .logo-container .img img{
+nav #logo-container .img img{
     position: absolute;
     top: 0;
     left: 0;
@@ -92,12 +93,12 @@ nav .logo-container .img img{
     opacity: 0;
 }
 
-nav .logo-container .img img.visible{
+nav #logo-container .img img.visible{
     transition: 0.3s;
     opacity: 1;
 }
 
-nav .logo-container .txt{
+nav #logo-container .txt{
     box-sizing: border-box;
     padding: 15px;
     font-weight: 200;
@@ -107,7 +108,7 @@ nav .logo-container .txt{
     align-items: center;
 }
 
-nav .logo-container .txt p{
+nav #logo-container .txt p{
     font-family:Arial, Helvetica, sans-serif;
     font-weight: 900;
     letter-spacing: 10px;
@@ -115,7 +116,7 @@ nav .logo-container .txt p{
 
 }
 
-nav .logo-container .txt p + p{
+nav #logo-container .txt p + p{
     font-family: "Lato", serif;
     font-weight: 400;
     letter-spacing: 2px;
