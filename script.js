@@ -62,14 +62,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     return ` <div id="tab${step.step}" class="menu-tab">
                      <span>${step.step}</span>
                      <p>${step.stepTitle}</p>
-                     <div class="ticker"></div>
+                     <div class="ticker light-grey"></div>
                     </div>
                     `
                     }).join('') + 
 
                     `</div>` + 
 
-                    `<div class="tabContentBox">` + 
+                    `<div class="tabContentBox light-grey">` + 
 
                     selectedElement[service].steps.map(step => {
                         return ` <div id="tab${step.step}-content" class="tabContent">
@@ -80,9 +80,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
                     `</div>
                     </div>
+                    <div class="imageBtnBox">
                     <button class="menu-btn">FREE QUOTE</button>
                     <div class="menu-img-container">
                         <img src="${selectedElement[service].image}" alt="">
+                    </div>
                     </div>
                     </div>`
 

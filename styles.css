@@ -340,7 +340,6 @@ nav .menu-container .burger-menu > i.visible{
     left: 0;
     width:100%;
     height: 15px;
-    background-color: #fff;
     opacity: 0;
 }
 
@@ -369,7 +368,7 @@ nav .menu-container .burger-menu > i.visible{
 #menu-opened .menu-details .service-steps .menu-tab:hover{
     transition: 0.3s;
     color:#333;
-    background-color: #fff;
+    background-color: #f7f7f7;
     cursor: pointer;
 }
 
@@ -385,7 +384,6 @@ nav .menu-container .burger-menu > i.visible{
     left:0;
     top: 0px;
     padding: 25px;
-    background-color: #fff;
     color: #333;
     border-radius: 4px;
     box-sizing: border-box;
@@ -405,6 +403,18 @@ nav .menu-container .burger-menu > i.visible{
 #menu-opened .menu-btn:hover{
     background-color: #777;
 
+}
+
+#menu-opened .menu-details .imageBtnBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu-opened .menu-details .light-grey{
+    background: #f7f7f7
 }
 
 header{
