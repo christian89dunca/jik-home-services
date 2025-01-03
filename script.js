@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             const selectedElement = data.find(element => element[service])
             console.log(selectedElement[service]);
 
-            menuDetailsBox.innerHTML = `
+            menuDetailsBox.innerHTML = `<div>
                 <h2>${selectedElement[service].title.toUpperCase()}</h2>
                 <h3>${selectedElement[service].subTitle}</h3>
                 <div class="service-steps"> ` + 
@@ -80,9 +80,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
                     `</div>
                     </div>
-                    <button>FREE QUOTE</button>
+                    <button class="menu-btn">FREE QUOTE</button>
                     <div class="menu-img-container">
                         <img src="${selectedElement[service].image}" alt="">
+                    </div>
                     </div>`
 
                     const tabsContent = Array.from(document.getElementsByClassName('tabContent'));
