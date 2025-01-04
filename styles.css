@@ -68,6 +68,7 @@ nav {
     color: white;
     display: flex;
     justify-content: space-between;
+    z-index: 100;
 }
 
 nav.nav-scrolled{
@@ -134,7 +135,7 @@ nav .menu-container{
     display: flex;
 }
 
-nav .menu-container .menu-icon{
+nav .menu-container .menu-icon {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -177,7 +178,71 @@ nav .menu-container .burger-menu > i.visible{
     /* transition: 0.3s; */
     opacity: 1;
 }
+nav #shopping-cart-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
 
+nav .shopping-cart-details{
+    cursor: auto;
+    position: absolute;
+    top:75px;
+    right: 0;
+    width: 300px;
+    min-height: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+nav .shopping-cart-details.visible{
+    opacity: 1;
+    transition: 0.3s;
+}
+
+nav .shopping-cart-details .shopping-cart-content{
+    color: #333;
+    font-size: 1.2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+nav .shopping-cart-details .shopping-cart-btn{
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+}
+
+nav .shopping-cart-btn button{
+    margin:0;
+    margin-top: 15px;
+    background-color: #333;
+    color: #fff;
+}
+
+nav .shopping-cart-btn button:hover{
+    background-color: #777;
+}
+
+nav .shopping-cart-btn button:disabled{
+    background-color: #eee;
+    color: #aaa;
+    border: none;
+    cursor: auto;
+}
 #menu-opened{
     transition: 0.3s;
     position: fixed;

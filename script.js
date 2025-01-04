@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const nav = document.getElementsByTagName('nav')[0];
     const copyrightYear = document.getElementById('copyright-year');
 
+    const shoppingCart = document.getElementById('shopping-cart');
+    const shoppingCartIcon = document.getElementById('shopping-cart-icon');
+    const shoppingCartDetails = document.getElementById('shopping-cart-details');
     const burgerMenu = document.getElementsByClassName('burger-menu')[0];
     const closedBurger = document.getElementById('closed-burger');
     const openedBurger = document.getElementById('opened-burger');
@@ -118,8 +121,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
+    body.addEventListener('click', (e)=>{
+        if (!shoppingCart.contains(e.target) ) {
+            shoppingCartDetails.classList.remove('visible');
+        }
+    })
+
     logoContainer.addEventListener('click', ()=>{
         window.location.href = 'index.html'
+    })
+
+    shoppingCartIcon.addEventListener('mouseenter', ()=>{
+        shoppingCartDetails.classList.add('visible');
+    })
+    shoppingCartIcon.addEventListener('click', ()=>{
+        shoppingCartDetails.classList.add('visible');
     })
 
     burgerMenu.addEventListener('click', () => {
