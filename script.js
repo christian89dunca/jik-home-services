@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const nav = document.getElementsByTagName('nav')[0];
     const copyrightYear = document.getElementById('copyright-year');
 
+    const modal = document.getElementById('modal');
+    const modalFilter = document.getElementById('modal-filter');
+    const closeBtn = document.getElementById('close-btn');
     const shoppingCart = document.getElementById('shopping-cart');
     const shoppingCartIcon = document.getElementById('shopping-cart-icon');
     const shoppingCartDetails = document.getElementById('shopping-cart-details');
@@ -52,10 +55,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
             const response = await fetch("./services.json");
             const data = await response.json();
             const selectedElement = data.find(element => element[service])
-            console.log(selectedElement[service]);
 
             if(selectedElement[service].quote){
-                console.log(selectedElement[service].quote);
                 menuDetailsBox.innerHTML = `<div>
                 <h2>${selectedElement[service].title.toUpperCase()}</h2>
                 <h3>${selectedElement[service].subTitle}</h3>
@@ -121,6 +122,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
+    function showModal(){
+        modal.classList.add('visible');
+        modal.addEventListener('click', (e)=>{
+            if (e.target.contains(modalFilter) ) {
+                modal.classList.remove('visible');
+            }
+        })
+        closeBtn.addEventListener('click', ()=>{
+            modal.classList.remove('visible');
+        })
+    }
+
+    document.getElementById('quote-from-scratch').addEventListener('click', ()=>{
+        showModal();
+    })
+
     body.addEventListener('click', (e)=>{
         if (!shoppingCart.contains(e.target) ) {
             shoppingCartDetails.classList.remove('visible');
@@ -144,20 +161,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
             triggerNavbarStyle(openedMenu.classList.contains('visible'));
         }
     })
-    // renderMenuContent('exterior');
     const menuLiItems = Array.from(menuItems).map(element => element.parentElement);
     renderMenuContent(menuLiItems[0].firstChild.innerText.replace(menuLiItems[0].firstChild.innerText[0], menuLiItems[0].firstChild.innerText[0].toLowerCase()).split(" ").join(''));
     menuLiItems.forEach(element => element.addEventListener('mouseenter', (event)=>{
-        // console.log(element.firstChild.innerText.replace(element.firstChild.innerText[0], element.firstChild.innerText[0].toLowerCase()).split(" ").join(''));
         menuLiItems.forEach(element => element.classList.remove('selected'))
         element.classList.add('selected');
         renderMenuContent(element.firstChild.innerText.replace(element.firstChild.innerText[0], element.firstChild.innerText[0].toLowerCase()).split(" ").join(''));
     }))
 
     
-    
-
-
     window.addEventListener('scroll', function() {
         triggerNavbarStyle(window.scrollY > 0);
     });

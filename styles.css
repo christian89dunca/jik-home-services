@@ -57,6 +57,70 @@ button:hover{
     cursor: pointer;
 }
 
+.modal{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+
+}
+
+.modal.visible{
+    opacity: 1;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.modal .modal-filter{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal .modal-box{
+    position: relative;
+    width: 1200px;
+    height:600px;
+    background-color: #fff;
+    z-index: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal .modal-box .close-x{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 50px;
+}
+.modal .modal-box .close-x i{
+    position: absolute;
+    top:0;
+    right:0;
+    height: 30px;
+    font-size: 30px;
+    color: #777;
+    padding: 10px;
+}
+.modal .modal-box .close-x i:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
 nav {
     transition: 0.3s;
     position: sticky;
@@ -873,6 +937,7 @@ main .contact .contact-content .form-container textarea{
 
 main .contact .contact-content .form-container button{
     width: 100%;
+    margin: 0;
     margin-top: 25px;
     background-color: #333;
     color: #fff;
