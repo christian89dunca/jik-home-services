@@ -56,6 +56,23 @@ button:hover{
     color: #fff;
     cursor: pointer;
 }
+.hidden{
+    visibility: hidden;
+}
+
+.no-display{
+    display: none;
+}
+
+.btn-dark{
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-dark:hover{
+    background-color: #777;
+    color: #fff;
+}
 
 .modal{
     position: fixed;
@@ -92,7 +109,7 @@ button:hover{
     height:600px;
     background-color: #fff;
     z-index: 1;
-    padding: 25px;
+    padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -120,6 +137,110 @@ button:hover{
     transform: scale(1.2);
     transition: 0.3s;
 }
+
+.modal .modal-box .quoting-progress-steps{
+    position: relative;
+    width: 75%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin:25px 0;
+}
+
+.modal .modal-box .quoting-progress-steps .quote-step{
+   font-size: 2.5rem;
+   border-radius: 50%;
+   border: 10px solid #ccc;
+   background-color: #fff;
+   height:20px;
+   width: 20px;
+}
+
+.modal .modal-box .quoting-progress-steps .quote-step.active{
+   border: 10px solid #333;
+   transition: all 0.3s;
+   transition-delay: 0.7s;
+
+ }
+
+.modal .modal-box .quoting-progress-steps .progress-bar{
+    position: absolute;
+    top: 15px;
+    background-color: #ccc;
+    width: 100%;
+    height: 10px;
+    z-index: -1;
+}
+
+.modal .modal-box .quoting-progress-steps .progress-bar .indicator{
+    position: absolute;
+    height: 100%;
+    background-color: #333;;
+    z-index: 10;
+    width: 0%;
+    transition: all 1s;
+}
+
+.modal .modal-box .modal-btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+
+}
+
+.modal .modal-box .modal-btns button{
+    margin: 0;
+}
+
+.modal .modal-box .quoting-current-step-content h2{
+    font-size: 3rem;
+    text-align: center;
+}
+
+.modal .modal-box .quoting-current-step-content h3{
+    font-size: 2.5rem;
+}
+
+.modal .modal-box .quoting-current-step-content .all-services{
+    margin-top: 25px;
+}
+
+.modal .modal-box .quoting-current-step-content .service-options-group{
+    display: flex;
+    gap: 50px;
+}
+
+.modal .modal-box .quoting-current-step-content .service-option{
+    box-sizing: border-box;
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+
+.modal .modal-box .quoting-current-step-content .service-option:hover{
+    background-color: #333;
+    color: #fff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal .modal-box .quoting-current-step-content .service-option.selected{
+    background-color: #ebb606;
+    border: 1px solid #eab812;
+    color: #fff;
+    transition: 0.3s;
+}
+.modal .modal-box .quoting-current-step-content .service-option.selected:hover{
+    background-color: #c39500;
+    color: #fff;
+    transition: 0.3s;
+}
+
+
 
 nav {
     transition: 0.3s;
@@ -293,12 +414,6 @@ nav .shopping-cart-details .shopping-cart-btn{
 nav .shopping-cart-btn button{
     margin:0;
     margin-top: 15px;
-    background-color: #333;
-    color: #fff;
-}
-
-nav .shopping-cart-btn button:hover{
-    background-color: #777;
 }
 
 nav .shopping-cart-btn button:disabled{
@@ -532,17 +647,6 @@ nav .shopping-cart-btn button:disabled{
 
 #menu-opened .menu-details .service-steps .tabContent.show{
     display: block;
-}
-
-#menu-opened .menu-btn{
-    background-color: #333;
-    color: #fff;
-
-}
-
-#menu-opened .menu-btn:hover{
-    background-color: #777;
-
 }
 
 #menu-opened .menu-details .imageBtnBox{
@@ -939,12 +1043,6 @@ main .contact .contact-content .form-container button{
     width: 100%;
     margin: 0;
     margin-top: 25px;
-    background-color: #333;
-    color: #fff;
-}
-
-main .contact .contact-content .form-container button:hover{
-    background-color: #777;
 }
 
 footer{

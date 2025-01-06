@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', ()=>{
+let currentQuoteStep = 0;
+
+document.addEventListener('DOMContentLoaded', async ()=>{
     const currnetMoment = new Date();
     const body = document.getElementsByTagName('body')[0];
     const logoContainer = document.getElementById('logo-container');
@@ -9,7 +11,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     const modal = document.getElementById('modal');
     const modalFilter = document.getElementById('modal-filter');
-    const closeBtn = document.getElementById('close-btn');
+    const modalCloseBtn = document.getElementById('close-btn');
+    const modalQuoteContent = document.getElementById('quoting-current-step-content');
+    const modalBtns = document.getElementsByClassName('modal-btn');
+    const quoteSteps = document.getElementsByClassName('quote-step');
     const shoppingCart = document.getElementById('shopping-cart');
     const shoppingCartIcon = document.getElementById('shopping-cart-icon');
     const shoppingCartDetails = document.getElementById('shopping-cart-details');
@@ -20,6 +25,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     const menuItems = document.getElementsByClassName('menu-item');
     const menuDetailsBox = document.getElementById('menu-details');
+
+    const services = await fetchServices();
 
     copyrightYear.innerText = currnetMoment.getFullYear();
 
@@ -49,93 +56,190 @@ document.addEventListener('DOMContentLoaded', ()=>{
             originalLogo.classList.remove('visible');
         }
     }
-    
-    async function renderMenuContent(service) {
+    async function fetchServices() {
         try {
             const response = await fetch("./services.json");
             const data = await response.json();
-            const selectedElement = data.find(element => element[service])
-
-            if(selectedElement[service].quote){
-                menuDetailsBox.innerHTML = `<div>
-                <h2>${selectedElement[service].title.toUpperCase()}</h2>
-                <h3>${selectedElement[service].subTitle}</h3>
-                <div class="service-steps"> ` + 
-
-                `<div class="stepsBox">` + 
-                
-                selectedElement[service].steps.map(step => {
-                    return ` <div id="tab${step.step}" class="menu-tab">
-                     <span>${step.step}</span>
-                     <p>${step.stepTitle}</p>
-                     <div class="ticker light-grey"></div>
-                    </div>
-                    `
-                    }).join('') + 
-
-                    `</div>` + 
-
-                    `<div class="tabContentBox light-grey">` + 
-
-                    selectedElement[service].steps.map(step => {
-                        return ` <div id="tab${step.step}-content" class="tabContent">
-                        ${step.stepDescription}
-                        </div>
-                        `
-                        }).join('')  + 
-
-                    `</div>
-                    </div>
-                    <div class="imageBtnBox">
-                    <button class="menu-btn">FREE QUOTE</button>
-                    <div class="menu-img-container">
-                        <img src="${selectedElement[service].image}" alt="">
-                    </div>
-                    </div>
-                    </div>`
-            } else{
-                menuDetailsBox.innerHTML = `<div class=contactBox>
-                <h2>${selectedElement[service].title.toUpperCase()}</h2>
-                <h2>${selectedElement[service].subTitle.toUpperCase()}</h2>
-                <h3>${selectedElement[service].description}</h3>
-                </div>
-                `
-            }
-            
-
-                    const tabsContent = Array.from(document.getElementsByClassName('tabContent'));
-                    const menuTabs = Array.from(document.getElementsByClassName('menu-tab'));
-                    menuTabs[0].classList.add('current-step');
-                    tabsContent[0].classList.add('show');
-                    menuTabs.forEach(tab => {
-                        tab.addEventListener('mouseenter', ()=>{
-                            menuTabs.forEach(tab => tab.classList.remove('current-step'));
-                            tabsContent.forEach(element => element.classList.remove('show'));
-                            tab.classList.add('current-step');
-                            tabsContent[menuTabs.indexOf(tab)].classList.add('show');
-
-                        })
-                    })
-
+            return data;
         } catch (error) {
             console.error(error)
+        }   
+    }
+    
+    function renderMenuContent(service) {
+        const allServices = [];
+        services.forEach(categ => {
+            Object.values(categ).forEach(el=> allServices.push(el));
+        });
+        const allServicesFlat = allServices.flat();
+        // console.log(allServicesFlat);
+
+        const serviceFlat = allServicesFlat.find(element => element[service]);
+        
+        // console.log(allServicesFlat[service]);
+        
+        if(serviceFlat[service].quote){
+            menuDetailsBox.innerHTML = `<div>
+            <h2>${serviceFlat[service].title.toUpperCase()}</h2>
+            <h3>${serviceFlat[service].subTitle}</h3>
+            <div class="service-steps"> ` + 
+
+            `<div class="stepsBox">` + 
+            
+            serviceFlat[service].steps.map(step => {
+                return ` <div id="tab${step.step}" class="menu-tab">
+                    <span>${step.step}</span>
+                    <p>${step.stepTitle}</p>
+                    <div class="ticker light-grey"></div>
+                </div>
+                `
+                }).join('') + 
+
+                `</div>` + 
+
+                `<div class="tabContentBox light-grey">` + 
+
+                serviceFlat[service].steps.map(step => {
+                    return ` <div id="tab${step.step}-content" class="tabContent">
+                    ${step.stepDescription}
+                    </div>
+                    `
+                    }).join('')  + 
+
+                `</div>
+                </div>
+                <div class="imageBtnBox">
+                <button class="menu-btn btn-dark">FREE QUOTE</button>
+                <div class="menu-img-container">
+                    <img src="${serviceFlat[service].image}" alt="">
+                </div>
+                </div>
+                </div>`
+        } else{
+            menuDetailsBox.innerHTML = `<div class=contactBox>
+            <h2>${serviceFlat[service].title.toUpperCase()}</h2>
+            <h2>${serviceFlat[service].subTitle.toUpperCase()}</h2>
+            <h3>${serviceFlat[service].description}</h3>
+            </div>
+            `
         }
+            
+
+            const tabsContent = Array.from(document.getElementsByClassName('tabContent'));
+            const menuTabs = Array.from(document.getElementsByClassName('menu-tab'));
+            menuTabs[0].classList.add('current-step');
+            tabsContent[0].classList.add('show');
+            menuTabs.forEach(tab => {
+                tab.addEventListener('mouseenter', ()=>{
+                    menuTabs.forEach(tab => tab.classList.remove('current-step'));
+                    tabsContent.forEach(element => element.classList.remove('show'));
+                    tab.classList.add('current-step');
+                    tabsContent[menuTabs.indexOf(tab)].classList.add('show');
+
+                })
+            })
     }
 
     function showModal(){
         modal.classList.add('visible');
+        updateModalBtns();
+        renderQuoteSteps();
         modal.addEventListener('click', (e)=>{
             if (e.target.contains(modalFilter) ) {
                 modal.classList.remove('visible');
             }
         })
-        closeBtn.addEventListener('click', ()=>{
+        modalCloseBtn.addEventListener('click', ()=>{
             modal.classList.remove('visible');
         })
     }
 
+    function updateSteps(e){
+        currentQuoteStep = e.target.id === "next" ? ++currentQuoteStep : --currentQuoteStep;
+        document.getElementById('indicator').style.width = (100/3) * currentQuoteStep + '%';
+        updateModalBtns();
+        renderQuoteSteps();
+        Array.from(quoteSteps).forEach((step, index) => {
+            step.classList[`${(index <= currentQuoteStep ? 'add' : 'remove')}`]('active');
+        })
+    }
+
+    function updateModalBtns(){
+
+        if(currentQuoteStep <= 0) {
+            currentQuoteStep = 0;
+            document.getElementById('back').style.visibility = "hidden";
+            document.getElementById('next').style.display = "block";
+        } else if(currentQuoteStep >= 3)  {
+            document.getElementById('next').style.display = "none";
+            document.getElementById('send').style.display = "block";
+            document.getElementById('back').style.visibility = "visible";
+        } else { 
+            document.getElementById('next').style.display = "block";
+            document.getElementById('send').style.display = "none";
+            document.getElementById('back').style.visibility = "visible";
+        }
+    }
+
+    function selectService(e){
+        console.log('asdasdasdasd');
+        serviceOptions.forEach( option => {
+            if(e.target === option){
+                option.classList.add('selected');
+            }
+        })
+    }
+
+    function renderQuoteSteps(){
+        switch (currentQuoteStep) {
+            case 0: 
+                modalQuoteContent.innerHTML = `
+                <h2>Select all the services you need</h2>
+                <div class="all-services">` +
+
+                services.map((service, index) => {
+                    if(index < (services.length - 1)){
+                        return `
+                        <h3>${Object.keys(service).join('').split(/(?=[A-Z])/).map(el => el[0].toUpperCase() + el.slice(1)).join(' ')}</h3>
+                        <div class="service-options-group">
+                            ` + 
+                            Array.from(service[Object.keys(service).join('')]).map(el => {
+                                return `
+                                    <div class="service-option">${el[Object.keys(el)].title}</div>
+                                    `
+                            }).join('')
+                            +
+                            `
+                        </div>
+                    `
+                    }
+                }).join('');
+    
+                Array.from(document.getElementsByClassName('service-option')).forEach(option => option.addEventListener('click', (e)=>{
+                    if(e.target === option && !option.classList.contains('selected')){
+                        option.classList.add('selected');
+                    } else{
+                        option.classList.remove('selected')
+                    }
+                }));
+                break;
+            case 1: 
+                modalQuoteContent.innerHTML = '2';
+                break;
+            case 2: 
+                modalQuoteContent.innerHTML = '3';
+                break;
+              case 3: 
+                modalQuoteContent.innerHTML = '4';
+          }
+    }
+    
     document.getElementById('quote-from-scratch').addEventListener('click', ()=>{
         showModal();
+    })
+
+    Array.from(modalBtns).forEach(btn => {
+        btn.addEventListener('click', updateSteps);
     })
 
     body.addEventListener('click', (e)=>{
@@ -161,6 +265,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             triggerNavbarStyle(openedMenu.classList.contains('visible'));
         }
     })
+    
     const menuLiItems = Array.from(menuItems).map(element => element.parentElement);
     renderMenuContent(menuLiItems[0].firstChild.innerText.replace(menuLiItems[0].firstChild.innerText[0], menuLiItems[0].firstChild.innerText[0].toLowerCase()).split(" ").join(''));
     menuLiItems.forEach(element => element.addEventListener('mouseenter', (event)=>{

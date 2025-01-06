@@ -19,11 +19,26 @@
             <div class="close-x">
                 <i id="close-btn" class="material-icons-outlined">close</i>
             </div>
-            <div class="quoting-progress-steps"></div>
-            <div class="quoting-current-step-content"></div>
+            <div class="quoting-progress-steps">
+                <span class="quote-step active"></span>
+                <!-- identify service type -->
+                <span class="quote-step"></span>
+                <!-- how urgent -->
+                <span class="quote-step"></span>
+                <!-- personal details -->
+                <span class="quote-step"></span>
+                <!-- review and send -->
+                 <div class="progress-bar">
+                    <span id="indicator" class="indicator"></span>
+                 </div>
+            </div>
+            <div id="quoting-current-step-content" class="quoting-current-step-content">
+            <!-- content injected dynamically -->
+            </div>
             <div class="modal-btns">
-                <button>Back</button>
-                <button>Next</button>
+                <button id="back" class="modal-btn hidden ">Back</button>
+                <button id="next" class="modal-btn btn-dark">Next</button>
+                <button id="send" class="no-display btn-dark">Request Quote</button>
             </div>
         </div>
     </div>
@@ -49,7 +64,7 @@
                         <p>you have no projects to submit a quote request for</p>
                     </div>
                     <div class="shopping-cart-btn">
-                        <button disabled>Send Request</button>
+                        <button disabled class="btn-dark">Send Request</button>
                     </div>
                 </div>
             </div>
@@ -266,7 +281,7 @@
                         placeholder="Your message for us"
                         required
                         ></textarea>
-                        <button onclick="sendMail()">Send</button>
+                        <button onclick="sendMail()" class="btn-dark">Send</button>
                     </div>
                 </div>
             </div>
