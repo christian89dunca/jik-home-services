@@ -181,15 +181,6 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         }
     }
 
-    function selectService(e){
-        console.log('asdasdasdasd');
-        serviceOptions.forEach( option => {
-            if(e.target === option){
-                option.classList.add('selected');
-            }
-        })
-    }
-
     function renderQuoteSteps(){
         switch (currentQuoteStep) {
             case 0: 
@@ -224,13 +215,45 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                 }));
                 break;
             case 1: 
-                modalQuoteContent.innerHTML = '2';
+                modalQuoteContent.innerHTML = `
+                    <h2>When do you want us to start?</h2>
+                `;
                 break;
             case 2: 
-                modalQuoteContent.innerHTML = '3';
+                modalQuoteContent.innerHTML = `
+                    <h2>How can we contact you?</h2>
+
+                    <div class="contact-form">                       
+                        <div class="form-container">
+                            <input
+                            id="fullName"
+                            type="text"
+                            placeholder="Full Name"
+                            required
+                            />
+                            <div>
+                                <input id="email" type="email" placeholder="e-mail" required />
+                                <input
+                                    id="phone"
+                                    type="phone"
+                                    placeholder="Phone Number"
+                                    required
+                                />
+                            </div>
+                            <input
+                                id="address"
+                                type="text"
+                                placeholder="Address"
+                                required
+                            />
+                        </div>
+                    </div>
+                `;
                 break;
               case 3: 
-                modalQuoteContent.innerHTML = '4';
+                modalQuoteContent.innerHTML = `
+                    <h2>One last check</h2>
+                `;
           }
     }
     

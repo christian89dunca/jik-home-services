@@ -110,7 +110,6 @@ button:hover{
     background-color: #fff;
     z-index: 1;
     padding: 50px;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -144,7 +143,7 @@ button:hover{
     height: 50px;
     display: flex;
     justify-content: space-between;
-    margin:25px 0;
+    margin:25px auto;
 }
 
 .modal .modal-box .quoting-progress-steps .quote-step{
@@ -193,6 +192,10 @@ button:hover{
     margin: 0;
 }
 
+.modal .modal-box .quoting-current-step-content{
+    width: 100%;
+}
+
 .modal .modal-box .quoting-current-step-content h2{
     font-size: 3rem;
     text-align: center;
@@ -238,6 +241,29 @@ button:hover{
     background-color: #c39500;
     color: #fff;
     transition: 0.3s;
+}
+
+.modal .contact-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.modal .quoting-current-step-content .contact-form .form-container{
+    width: 600px;
+}
+
+.modal .quoting-current-step-content .contact-form .form-container input,
+.modal .quoting-current-step-content .contact-form .form-container > div{
+    box-sizing: border-box;
+    width: 100%; 
+    margin-bottom: 25px;
+}
+
+.modal .quoting-current-step-content .contact-form .form-container > div{
+    display: flex;
+    gap: 25px;
+    margin: 0;
 }
 
 
@@ -1012,6 +1038,7 @@ main .contact .contact-content .form-container{
     margin-top: 25px;
 }
 
+.modal, .contact-form input,
 main .contact .contact-content .form-container input,
 main .contact .contact-content .form-container textarea{
     padding: 10px;
@@ -1019,11 +1046,13 @@ main .contact .contact-content .form-container textarea{
     outline: none;
 }
 
+.modal, .contact-form input,
 main .contact .contact-content .form-container > input,
 main .contact .contact-content .form-container > div {
     margin-bottom: 10px;
     flex: 1;
 }
+
 
 main .contact .contact-content .form-container > div{
     gap: 10px;
