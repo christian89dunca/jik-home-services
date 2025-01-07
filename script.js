@@ -1,5 +1,11 @@
 let currentQuoteStep = 0;
 
+const currentQuote = {
+    serviceTitle: [],
+    timeline: "",
+    personalDetails:{}
+};
+
 document.addEventListener('DOMContentLoaded', async ()=>{
     const currnetMoment = new Date();
     const body = document.getElementsByTagName('body')[0];
@@ -181,80 +187,120 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         }
     }
 
+    function selectForQuote(className){
+        const options = Array.from(document.getElementsByClassName(className));
+        if(className === "service-option"){
+            options.forEach((option) => option.addEventListener('click', (e)=>{
+                if(e.target === option && !option.classList.contains('selected')){
+                    option.classList.add('selected');
+                    currentQuote.serviceTitle.push(e.target.innerText)
+    
+                } else{
+                    option.classList.remove('selected')
+                    currentQuote.serviceTitle.splice(currentQuote.serviceTitle.indexOf(e.target.innerText), 1)
+                }
+            }));
+        }
+        if(className === "timeline-option"){
+            options.forEach((option) => option.addEventListener('click', (e)=>{
+                if(e.target === option && !option.classList.contains('selected')){
+                    options.forEach(option => option.classList.remove('selected'));
+                    option.classList.add('selected');
+                    currentQuote.timeline = e.target.innerText;
+                } else{
+                    option.classList.remove('selected')
+                    currentQuote.timeline = '';
+                }
+            }));
+        } 
+        if(className = 'quote-input'){
+            options.forEach('change', () => {
+                console.log('asdasd');
+            })
+        }
+    }
+
     function renderQuoteSteps(){
         switch (currentQuoteStep) {
             case 0: 
                 modalQuoteContent.innerHTML = `
                 <h2>Select all the services you need</h2>
-                <div class="all-services">` +
+                <div class="modal-main-content">
+                    <div class="all-services">` +
 
-                services.map((service, index) => {
-                    if(index < (services.length - 1)){
-                        return `
-                        <h3>${Object.keys(service).join('').split(/(?=[A-Z])/).map(el => el[0].toUpperCase() + el.slice(1)).join(' ')}</h3>
-                        <div class="service-options-group">
-                            ` + 
-                            Array.from(service[Object.keys(service).join('')]).map(el => {
-                                return `
-                                    <div class="service-option">${el[Object.keys(el)].title}</div>
-                                    `
-                            }).join('')
-                            +
-                            `
-                        </div>
-                    `
-                    }
-                }).join('');
+                    services.map((service, index) => {
+                        if(index < (services.length - 1)){
+                            return `
+                            <h3>${Object.keys(service).join('').split(/(?=[A-Z])/).map(el => el[0].toUpperCase() + el.slice(1)).join(' ')}</h3>
+                            <div class="service-options-group">
+                                ` + 
+                                Array.from(service[Object.keys(service).join('')]).map(el => {
+                                    return `
+                                        <div class="service-option">${el[Object.keys(el)].title}</div>
+                                        `
+                                }).join('')
+                                +
+                                `
+                            </div>
+                        `
+                        }
+                    }).join('');
+                    +
+                `</div>`
     
-                Array.from(document.getElementsByClassName('service-option')).forEach(option => option.addEventListener('click', (e)=>{
-                    if(e.target === option && !option.classList.contains('selected')){
-                        option.classList.add('selected');
-                    } else{
-                        option.classList.remove('selected')
-                    }
-                }));
+                selectForQuote('service-option');
+                
                 break;
             case 1: 
                 modalQuoteContent.innerHTML = `
                     <h2>When do you want us to start?</h2>
-                    <div class="timeline-options-group">
-                        <div class="timeline-option">Urgent</div>
-                        <div class="timeline-option">In the next 2-3 days</div>
-                        <div class="timeline-option">Sometimes this week or the next</div>
-                        <div class="timeline-option">Over a week</div>
+                    <div class="modal-main-content">
+                        <div class="timeline-options-group">
+                            <div class="timeline-option">Urgent</div>
+                            <div class="timeline-option">In the next 2-3 days</div>
+                            <div class="timeline-option">Sometimes this week or the next</div>
+                            <div class="timeline-option">Over a week</div>
+                        </div>
                     </div>
-                `;
+                `
+                
+                selectForQuote('timeline-option');
                 break;
             case 2: 
                 modalQuoteContent.innerHTML = `
                     <h2>How can we contact you?</h2>
-
-                    <div class="contact-form">                       
-                        <div class="form-container">
-                            <input
-                            id="fullName"
-                            type="text"
-                            placeholder="Full Name"
-                            required
-                            />
-                            <div>
-                                <input id="email" type="email" placeholder="e-mail" required />
+                    <div class="modal-main-content">
+                        <div class="contact-form">                       
+                            <div class="form-container">
                                 <input
-                                    id="phone"
-                                    type="phone"
-                                    placeholder="Phone Number"
+                                id="fullName"
+                                class="quote-input"
+                                type="text"
+                                placeholder="Full Name"
+                                required
+                                />
+                                <div>
+                                    <input id="email" class="quote-input" type="email" placeholder="e-mail" required />
+                                    <input
+                                        id="phone"
+                                        class="quote-input"
+                                        type="phone"
+                                        placeholder="Phone Number"
+                                        required
+                                    />
+                                </div>
+                                <input
+                                    id="address"
+                                    class="quote-input"
+                                    type="text"
+                                    placeholder="Address"
                                     required
                                 />
                             </div>
-                            <input
-                                id="address"
-                                type="text"
-                                placeholder="Address"
-                                required
-                            />
                         </div>
                     </div>
-                `;
+                `
+                selectForQuote('quote-input');
                 break;
               case 3: 
                 modalQuoteContent.innerHTML = `
