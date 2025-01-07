@@ -217,6 +217,12 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             case 1: 
                 modalQuoteContent.innerHTML = `
                     <h2>When do you want us to start?</h2>
+                    <div class="timeline-options-group">
+                        <div class="timeline-option">Urgent</div>
+                        <div class="timeline-option">In the next 2-3 days</div>
+                        <div class="timeline-option">Sometimes this week or the next</div>
+                        <div class="timeline-option">Over a week</div>
+                    </div>
                 `;
                 break;
             case 2: 

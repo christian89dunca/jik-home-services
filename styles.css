@@ -194,6 +194,7 @@ button:hover{
 
 .modal .modal-box .quoting-current-step-content{
     width: 100%;
+    height: 450px;
 }
 
 .modal .modal-box .quoting-current-step-content h2{
@@ -209,12 +210,14 @@ button:hover{
     margin-top: 25px;
 }
 
-.modal .modal-box .quoting-current-step-content .service-options-group{
+.modal .modal-box .quoting-current-step-content .service-options-group,
+.modal .modal-box .quoting-current-step-content .timeline-options-group{
     display: flex;
     gap: 50px;
 }
 
-.modal .modal-box .quoting-current-step-content .service-option{
+.modal .modal-box .quoting-current-step-content .service-option,
+.modal .modal-box .quoting-current-step-content .timeline-option{
     box-sizing: border-box;
     border: 1px solid #333;
     padding: 10px;
@@ -224,20 +227,23 @@ button:hover{
     border-radius: 4px;
 }
 
-.modal .modal-box .quoting-current-step-content .service-option:hover{
+.modal .modal-box .quoting-current-step-content .service-option:hover,
+.modal .modal-box .quoting-current-step-content .timeline-option:hover{
     background-color: #333;
     color: #fff;
     transition: 0.3s;
     cursor: pointer;
 }
 
-.modal .modal-box .quoting-current-step-content .service-option.selected{
+.modal .modal-box .quoting-current-step-content .service-option.selected
+.modal .modal-box .quoting-current-step-content .timeline-option.selected{
     background-color: #ebb606;
     border: 1px solid #eab812;
     color: #fff;
     transition: 0.3s;
 }
-.modal .modal-box .quoting-current-step-content .service-option.selected:hover{
+.modal .modal-box .quoting-current-step-content .service-option.selected:hover,
+.modal .modal-box .quoting-current-step-content .timeline-option.selected:hover{
     background-color: #c39500;
     color: #fff;
     transition: 0.3s;
