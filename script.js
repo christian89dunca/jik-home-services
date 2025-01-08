@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                 `</div>
                 </div>
                 <div class="imageBtnBox">
-                <button class="menu-btn btn-dark">FREE QUOTE</button>
+                <button class="quote-from-scratch menu-btn btn-dark">FREE QUOTE</button>
                 <div class="menu-img-container">
                     <img src="${serviceFlat[service].image}" alt="">
                 </div>
@@ -142,6 +142,11 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                     tab.classList.add('current-step');
                     tabsContent[menuTabs.indexOf(tab)].classList.add('show');
 
+                })
+            })
+            Array.from(document.getElementsByClassName('quote-from-scratch')).forEach(element => {
+                element.addEventListener('click', ()=>{
+                    showModal();
                 })
             })
     }
@@ -178,11 +183,9 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             document.getElementById('next').style.display = "block";
         } else if(currentQuoteStep >= 3)  {
             document.getElementById('next').style.display = "none";
-            document.getElementById('send').style.display = "block";
             document.getElementById('back').style.visibility = "visible";
         } else { 
             document.getElementById('next').style.display = "block";
-            document.getElementById('send').style.display = "none";
             document.getElementById('back').style.visibility = "visible";
         }
     }
@@ -214,9 +217,9 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             }));
         } 
         if(className = 'quote-input'){
-            options.forEach('change', () => {
-                console.log('asdasd');
-            })
+            options.forEach(option => option.addEventListener('input', () => {
+                currentQuote.personalDetails[option.id] = option.value;
+            }))
         }
     }
 
@@ -296,6 +299,11 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                                     placeholder="Address"
                                     required
                                 />
+                                <div>
+                                    <input id="city" class="quote-input" type="text" placeholder="City" required />
+                                    <input id="state" class="quote-input" type="text" placeholder="State" required />
+                                    <input id="zipcode" class="quote-input" type="text" placeholder="Zip Code" required />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -304,13 +312,58 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                 break;
               case 3: 
                 modalQuoteContent.innerHTML = `
-                    <h2>One last check</h2>
-                `;
+                    <h2>Please check if all details are correct</h2>
+
+                    <div class="modal-main-content last-check">
+                    <div>
+
+                    ` 
+                    + 
+                    
+                    Object.keys(currentQuote).map((key) => {
+
+                        if(Array.isArray(currentQuote[key])){
+                            return `
+                                <h4>Service${currentQuote[key].length > 1 ? 's' : ''}</h4>
+                                <p>${currentQuote[key].join(', ')}</p>
+                            `
+                        }
+
+                        if(typeof currentQuote[key] === 'string'){
+                            return `
+                                <h4>Timeline</h4>
+                                <p>${currentQuote[key]}</p>
+                            `
+                        }
+                        
+                        if(typeof currentQuote[key] === 'object'){
+                            return `
+                                <h4>Personal Details</h4>`
+                                +
+                                Object.keys(currentQuote[key]).map(el => {
+                                    return `<p>${currentQuote[key][el]}</p>`
+                                }).join('');
+                                
+                        }
+                    }).join('')
+
+                    +
+                    `
+                    </div>
+                    <div class="user-test">
+                        <h4>What is two + two?</h4>                
+                        <input id="user-test" class="quote-input" type="number" placeholder="result" required />
+                        <button id="send" class="btn-dark">Request Quote</button>
+                    </div>
+                    </div>
+                        `;
           }
     }
     
-    document.getElementById('quote-from-scratch').addEventListener('click', ()=>{
-        showModal();
+    Array.from(document.getElementsByClassName('quote-from-scratch')).forEach(element => {
+        element.addEventListener('click', ()=>{
+            showModal();
+        })
     })
 
     Array.from(modalBtns).forEach(btn => {

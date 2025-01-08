@@ -38,7 +38,6 @@
             <div class="modal-btns">
                 <button id="back" class="modal-btn hidden ">Back</button>
                 <button id="next" class="modal-btn btn-dark">Next</button>
-                <button id="send" class="no-display btn-dark">Request Quote</button>
             </div>
         </div>
     </div>
@@ -115,7 +114,7 @@
             <h1><span>Get your FREE quote</span><span>within 1 hour*</span></h1>
             <p>or give us a call</p>
             <p>(480) 652 - 4898</p>
-            <button id="quote-from-scratch">GET FREE QUOTE</button>
+            <button class="quote-from-scratch">GET FREE QUOTE</button>
             <!-- <button></button> -->
         </div>
     </header>
@@ -123,8 +122,8 @@
         <section class="services">
             <h2>OUR SERVICES</h2>
             <div>
-                <article>
-                    <div>
+                <article class="quote-from-scratch">
+                    <div >
                         <div class="filter"></div>
                         <img src="resources/man poainting.png" alt="man painting">
                     </div>
@@ -132,7 +131,7 @@
                         <h4>Interior / Exterior Painting</h4>
                     </div>
                 </article>
-                <article> 
+                <article class="quote-from-scratch"> 
                    <div>
                         <div class="filter"></div>
                         <img src="resources/man washig window.png" alt="man painting">
@@ -141,7 +140,7 @@
                         <h4>Exterior Cleaning</h4>
                    </div>
                 </article>
-                <article>
+                <article class="quote-from-scratch">
                    <div>
                         <div class="filter"></div>
                         <img src="resources/woman cleaning.png" alt="man painting">
@@ -281,7 +280,11 @@
                         placeholder="Your message for us"
                         required
                         ></textarea>
-                        <button onclick="sendMail()" class="btn-dark">Send</button>
+                        <div class="user-test">
+                            <h4>What is two + two?</h4>                
+                            <input id="user-test" class="quote-input" type="number" placeholder="result" required />
+                        </div>
+                        <button class="btn-dark">Send</button>
                     </div>
                 </div>
             </div>

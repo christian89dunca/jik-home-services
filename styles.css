@@ -209,6 +209,7 @@ button:hover{
 .modal .modal-box .quoting-current-step-content .modal-main-content{
     height: 400px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -252,17 +253,57 @@ button:hover{
     transition: 0.3s;
 }
 
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check > div:first-child{
+    border-right: 1px solid #333;
+    padding-right: 25px;
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check h4{
+    font-size: 2rem;
+    margin: 25px 0 5px 0;
+
+}
+
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check p{
+    font-size: 1.3rem;
+}
+
+.modal .modal-box .quoting-current-step-content .modal-main-content .user-test{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.modal .modal-box .quoting-current-step-content .modal-main-content .user-test input{
+    margin-top: 25px;
+}
+
+.modal .modal-box .quoting-current-step-content .modal-main-content .user-test h4{
+    text-align: center;
+}
+
 .modal .contact-form {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
 }
 
 .modal .quoting-current-step-content .contact-form .form-container{
     width: 600px;
 }
 
-.modal .quoting-current-step-content .contact-form .form-container input,
+.modal .quoting-current-step-content .contact-form .form-container .quote-input,
 .modal .quoting-current-step-content .contact-form .form-container > div{
     box-sizing: border-box;
     width: 100%; 
@@ -1047,7 +1088,7 @@ main .contact .contact-content .form-container{
     margin-top: 25px;
 }
 
-.modal, .contact-form input,
+.modal, .quote-input,
 main .contact .contact-content .form-container input,
 main .contact .contact-content .form-container textarea{
     padding: 10px;
@@ -1057,7 +1098,7 @@ main .contact .contact-content .form-container textarea{
 
 .modal, .contact-form input,
 main .contact .contact-content .form-container > input,
-main .contact .contact-content .form-container > div {
+main .contact .contact-content .form-container > div:first-child{
     margin-bottom: 10px;
     flex: 1;
 }
@@ -1075,6 +1116,13 @@ main .contact .contact-content .form-container > div > *{
 
 main .contact .contact-content .form-container textarea{
     resize: none;
+}
+
+main .contact .contact-form .form-container .user-test{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
 main .contact .contact-content .form-container button{
