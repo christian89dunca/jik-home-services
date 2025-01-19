@@ -1,9 +1,17 @@
 let currentQuoteStep = 0;
 
-const currentQuote = {
+let currentQuote = {
     serviceTitle: [],
-    timeline: "",
-    personalDetails:{}
+    timeline: [],
+    personalDetails:{
+        fullName: '',
+        email: '',
+        phone: '',
+        address: '',
+        state: '',
+        zipcode: ''
+    },
+    result: 4
 };
 
 document.addEventListener('DOMContentLoaded', async ()=>{
@@ -28,13 +36,18 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     const closedBurger = document.getElementById('closed-burger');
     const openedBurger = document.getElementById('opened-burger');
     const openedMenu = document.getElementById('menu-opened');
+    const banner = document.getElementById('project-banner');
 
     const menuItems = document.getElementsByClassName('menu-item');
     const menuDetailsBox = document.getElementById('menu-details');
+    const contactForm = document.getElementsByClassName('contact-form');
+    const sendMessage = document.getElementById('send-message');
 
     const services = await fetchServices();
 
     copyrightYear.innerText = currnetMoment.getFullYear();
+    shoppingCartDetails.style.display = 'none';
+
 
 
     function triggerMenu(){
@@ -78,11 +91,8 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             Object.values(categ).forEach(el=> allServices.push(el));
         });
         const allServicesFlat = allServices.flat();
-        // console.log(allServicesFlat);
 
         const serviceFlat = allServicesFlat.find(element => element[service]);
-        
-        // console.log(allServicesFlat[service]);
         
         if(serviceFlat[service].quote){
             menuDetailsBox.innerHTML = `<div>
@@ -151,9 +161,9 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             })
     }
 
-    function showModal(){
+    function showModal(valid){
         modal.classList.add('visible');
-        updateModalBtns();
+        updateModalBtns(valid);
         renderQuoteSteps();
         modal.addEventListener('click', (e)=>{
             if (e.target.contains(modalFilter) ) {
@@ -168,15 +178,15 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     function updateSteps(e){
         currentQuoteStep = e.target.id === "next" ? ++currentQuoteStep : --currentQuoteStep;
         document.getElementById('indicator').style.width = (100/3) * currentQuoteStep + '%';
-        updateModalBtns();
+        e.target.id === 'back' ? updateModalBtns(true) : updateModalBtns();
         renderQuoteSteps();
         Array.from(quoteSteps).forEach((step, index) => {
             step.classList[`${(index <= currentQuoteStep ? 'add' : 'remove')}`]('active');
         })
+        updateShoppingCart();
     }
 
-    function updateModalBtns(){
-
+    function updateModalBtns(valid){
         if(currentQuoteStep <= 0) {
             currentQuoteStep = 0;
             document.getElementById('back').style.visibility = "hidden";
@@ -184,41 +194,100 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         } else if(currentQuoteStep >= 3)  {
             document.getElementById('next').style.display = "none";
             document.getElementById('back').style.visibility = "visible";
-        } else { 
+        } else {
             document.getElementById('next').style.display = "block";
             document.getElementById('back').style.visibility = "visible";
         }
+        if(valid){
+            document.getElementById('next').removeAttribute("disabled");
+        } else {
+            document.getElementById('next')?.setAttribute('disabled', 'true');
+        }
+    }
+
+    function updateSelection(key, options){
+        if(options.every(el => el.localName === 'div') && currentQuote[key].length > 0){
+            options.forEach(option => {
+                if(currentQuote[key].some(el => el === option.innerText)){
+                    option.classList.add('selected');
+                }
+            });
+            };
+
+            if(options.every(el => el.localName === 'input')){
+                options.forEach(option => option.value = currentQuote.personalDetails[option.id] || '');
+                };
     }
 
     function selectForQuote(className){
         const options = Array.from(document.getElementsByClassName(className));
+        if(!options.some(el => el.classList.contains('selected') || el?.value?.length > 1)){
+        }
         if(className === "service-option"){
+
+            updateSelection('serviceTitle', options);
+
             options.forEach((option) => option.addEventListener('click', (e)=>{
                 if(e.target === option && !option.classList.contains('selected')){
                     option.classList.add('selected');
-                    currentQuote.serviceTitle.push(e.target.innerText)
-    
+                    currentQuote.serviceTitle.push(e.target.innerText);
                 } else{
                     option.classList.remove('selected')
                     currentQuote.serviceTitle.splice(currentQuote.serviceTitle.indexOf(e.target.innerText), 1)
                 }
+                updateModalBtns(currentQuote.serviceTitle.length > 0);
+
             }));
         }
         if(className === "timeline-option"){
+
+            updateSelection('timeline', options);
+
             options.forEach((option) => option.addEventListener('click', (e)=>{
                 if(e.target === option && !option.classList.contains('selected')){
                     options.forEach(option => option.classList.remove('selected'));
                     option.classList.add('selected');
-                    currentQuote.timeline = e.target.innerText;
-                } else{
-                    option.classList.remove('selected')
-                    currentQuote.timeline = '';
+                    currentQuote.timeline = [];
+                    currentQuote.timeline.push(e.target.innerText);
                 }
+                updateModalBtns(currentQuote.timeline.length > 0);
             }));
         } 
         if(className = 'quote-input'){
+
+            updateSelection('personalDetails', options);
+
             options.forEach(option => option.addEventListener('input', () => {
                 currentQuote.personalDetails[option.id] = option.value;
+                if(options.every(option => option.value)){
+                    updateModalBtns(true);
+                } else{
+                    updateModalBtns(false);
+                }
+            }))
+        }
+        if(className = 'result'){
+            options.forEach(option => option.addEventListener('input', () => {
+                if(option.value == currentQuote.result){
+                    document.getElementById('send-quote').removeAttribute("disabled");
+                    document.getElementById('send-quote').addEventListener('click', () => {
+                        currentQuote = {
+                            serviceTitle: [],
+                            timeline: [],
+                            personalDetails:{
+                                fullName: '',
+                                email: '',
+                                phone: '',
+                                address: '',
+                                state: '',
+                                zipcode: ''
+                            },
+                            result: 4
+                        };
+                    })
+                } else {
+                    document.getElementById('send-quote')?.setAttribute('disabled', 'true');
+                }
             }))
         }
     }
@@ -280,16 +349,19 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                                 class="quote-input"
                                 type="text"
                                 placeholder="Full Name"
-                                required
                                 />
                                 <div>
-                                    <input id="email" class="quote-input" type="email" placeholder="e-mail" required />
+                                    <input id="email" 
+                                    class="quote-input" 
+                                    type="email" 
+                                    placeholder="e-mail" 
+ />
+
                                     <input
                                         id="phone"
                                         class="quote-input"
-                                        type="phone"
+                                        type="number"
                                         placeholder="Phone Number"
-                                        required
                                     />
                                 </div>
                                 <input
@@ -297,12 +369,27 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                                     class="quote-input"
                                     type="text"
                                     placeholder="Address"
-                                    required
+
                                 />
                                 <div>
-                                    <input id="city" class="quote-input" type="text" placeholder="City" required />
-                                    <input id="state" class="quote-input" type="text" placeholder="State" required />
-                                    <input id="zipcode" class="quote-input" type="text" placeholder="Zip Code" required />
+                                    <input 
+                                        id="city" 
+                                        class="quote-input" 
+                                        type="text" 
+                                        placeholder="City" 
+     />
+                                    <input 
+                                        id="state" 
+                                        class="quote-input" 
+                                        type="text" 
+                                        placeholder="State" 
+     />
+                                    <input 
+                                        id="zipcode" 
+                                        class="quote-input" 
+                                        type="number" 
+                                        placeholder="Zip Code" 
+     />
                                 </div>
                             </div>
                         </div>
@@ -315,33 +402,47 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                     <h2>Please check if all details are correct</h2>
 
                     <div class="modal-main-content last-check">
-                    <div>
-
+                    <form action="https://formsubmit.co/christianthehandyman89@gmail.com" method="POST">
+                    <input type="text" name="_honey" value="" style="display:none;">
+                    <input type="hidden" name="_captcha" value="false">                    
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/success.html" >
+                    <div class="form-left">
                     ` 
                     + 
                     
                     Object.keys(currentQuote).map((key) => {
-
-                        if(Array.isArray(currentQuote[key])){
+                        if(key === 'serviceTitle'){
                             return `
                                 <h4>Service${currentQuote[key].length > 1 ? 's' : ''}</h4>
-                                <p>${currentQuote[key].join(', ')}</p>
+                                <div class=last-check-input-container>` +
+                                currentQuote[key].map((service, index) => {
+                                    return ` <input class="last-check-input" name="${'service ' + (index + 1)}" readonly value="${service}" size=${service.length + 2}/>`
+                                }).join('')
+                                +
+                                `
+                                </div>
                             `
                         }
 
-                        if(typeof currentQuote[key] === 'string'){
+                        if(key === 'timeline'){
                             return `
                                 <h4>Timeline</h4>
-                                <p>${currentQuote[key]}</p>
+                                <div class=last-check-input-container>
+                                <input class="last-check-input" name="timeline" readonly value="${currentQuote[key]}" size=${currentQuote[key].join('').length + 2}/>
+                                </div>
                             `
                         }
                         
-                        if(typeof currentQuote[key] === 'object'){
+                        if(key === 'personalDetails'){
                             return `
-                                <h4>Personal Details</h4>`
+                                <h4>Personal Details</h4>
+                                    <div class=last-check-input-container>
+                                `
                                 +
                                 Object.keys(currentQuote[key]).map(el => {
-                                    return `<p>${currentQuote[key][el]}</p>`
+                                    return `
+                                    <input class="last-check-input" name="${el}" readonly value="${currentQuote[key][el]}" size=${currentQuote[key][el].length + 2}/>                                    
+                                    `
                                 }).join('');
                                 
                         }
@@ -350,14 +451,41 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                     +
                     `
                     </div>
+                    </div>
                     <div class="user-test">
                         <h4>What is two + two?</h4>                
-                        <input id="user-test" class="quote-input" type="number" placeholder="result" required />
-                        <button id="send" class="btn-dark">Request Quote</button>
+                        <input id="user-test" class="quote-input result" type="number" name="result" placeholder="result"/>
+                        <button type="submit" id="send-quote" class="btn-dark" disabled>Request Quote</button>
                     </div>
-                    </div>
+                    </form>
                         `;
+                    selectForQuote('result');                    
           }
+    }
+
+    function updateShoppingCart(){
+        if (currentQuote.serviceTitle.length > 0){
+            const badge = document.createElement('div');
+            badge.className = 'shopping-cart-badge';
+            const badgeText = document.createElement('p');
+            badgeText.innerText = currentQuote.serviceTitle.length;
+            badgeText.style.paddingLeft = '2px';
+            badge.append(badgeText);
+            shoppingCart.append(badge);
+            shoppingCartDetails.innerHTML = `
+            <div class="shopping-cart-content">
+                <p>${currentQuote.serviceTitle.join(' | ')}</p>
+            </div>
+            <div class="shopping-cart-btn">
+                <button id="shopping-cart-btn" class="btn-dark">See Project</button>
+            </div>
+            `
+
+            document.getElementById('shopping-cart-btn').addEventListener('click', ()=>{
+                currentQuoteStep--
+                showModal(true);
+            })
+        }
     }
     
     Array.from(document.getElementsByClassName('quote-from-scratch')).forEach(element => {
@@ -373,6 +501,9 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     body.addEventListener('click', (e)=>{
         if (!shoppingCart.contains(e.target) ) {
             shoppingCartDetails.classList.remove('visible');
+        setTimeout(()=> {
+            shoppingCartDetails.style.display = 'none';
+        }, 100)
         }
     })
 
@@ -381,10 +512,17 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     })
 
     shoppingCartIcon.addEventListener('mouseenter', ()=>{
-        shoppingCartDetails.classList.add('visible');
+        shoppingCartDetails.style.display = 'flex';
+        setTimeout(()=> {
+            shoppingCartDetails.classList.add('visible');
+        }, 100)
+        
     })
     shoppingCartIcon.addEventListener('click', ()=>{
-        shoppingCartDetails.classList.add('visible');
+        shoppingCartDetails.style.display = 'flex';
+        setTimeout(()=> {
+            shoppingCartDetails.classList.add('visible');
+        }, 100)
     })
 
     burgerMenu.addEventListener('click', () => {
@@ -393,6 +531,29 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             triggerNavbarStyle(openedMenu.classList.contains('visible'));
         }
     })
+
+    banner.addEventListener('click', () => {
+        triggerMenu();
+        if(window.scrollY < 1){
+            triggerNavbarStyle(openedMenu.classList.contains('visible'));
+        }
+    })
+
+
+    const contactInputs = Array.from(document.getElementsByClassName('contact-input'));
+    contactInputs.forEach(input => input.addEventListener('input', () => {
+        contactInputs.forEach(el => {
+            console.log(el.value);
+            console.log(document.getElementById('user-test').value);
+            if(el.value && document.getElementById('user-test').value == currentQuote.result){
+                document.getElementById('send-message').removeAttribute("disabled");
+            } else {
+                document.getElementById('send-message')?.setAttribute('disabled', 'true');
+            }
+        })
+        
+    }));
+        
     
     const menuLiItems = Array.from(menuItems).map(element => element.parentElement);
     renderMenuContent(menuLiItems[0].firstChild.innerText.replace(menuLiItems[0].firstChild.innerText[0], menuLiItems[0].firstChild.innerText[0].toLowerCase()).split(" ").join(''));

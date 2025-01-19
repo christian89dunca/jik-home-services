@@ -37,7 +37,7 @@
             </div>
             <div class="modal-btns">
                 <button id="back" class="modal-btn hidden ">Back</button>
-                <button id="next" class="modal-btn btn-dark">Next</button>
+                <button id="next" class="modal-btn btn-dark disabled">Next</button>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@
                         <p>you have no projects to submit a quote request for</p>
                     </div>
                     <div class="shopping-cart-btn">
-                        <button disabled class="btn-dark">Send Request</button>
+                        <button disabled class="btn-dark">See Project</button>
                     </div>
                 </div>
             </div>
@@ -111,16 +111,18 @@
             <img src="resources/35_years_old_tradesman_at_work.jpeg" alt="background picture">
         </div>
         <div class="content-header">
-            <h1><span>Get your FREE quote</span><span>within 1 hour*</span></h1>
-            <p>or give us a call</p>
+            <h1><span>We transform houses</span><span>into Homes</span></h1>
+            <p class="text-light">Give us a call</p>
             <p>(480) 652 - 4898</p>
-            <button class="quote-from-scratch">GET FREE QUOTE</button>
+            <p class="text-light">or</p>
+            <p class="text-light">Leave your project's details with us and we will</p>
+            <button class="quote-from-scratch">CONTACT YOU</button>
             <!-- <button></button> -->
         </div>
     </header>
     <main>
         <section class="services">
-            <h2>OUR SERVICES</h2>
+            <h2><span>SERVICES THAT MAKE</span><span>THE TRANSFORMATION</span></h2>
             <div>
                 <article class="quote-from-scratch">
                     <div >
@@ -152,12 +154,15 @@
             </div>
         </section>
         <section class="banner">
-            <div class="project-banner">
+            <div id="project-banner" class="project-banner">
+                 <div class="banner-filter">
+                    <h2>ALL SERVICES</h2>
+                 </div>
                 <img src="resources/job_site_remodeling.jpeg" alt="project in progress">
             </div>
         </section>
         <section class="projects">
-            <h2>PROJECTS</h2>
+            <h2>SOME OF THE TRANSFORMED HOUSES</h2>
             <div>
                 <div>
                     <img src="resources/construction_project_1.jpeg" alt="">
@@ -186,7 +191,8 @@
             <img src="" alt="">
         </section> -->
         <section class="about-us">
-            <h2>GET TO KNOW US BETTER</h2>
+            <h2>WHO ARE WE?</h2>
+            <p>We are a family owned company dedicated to people. We believe in teams and partnerships and of course we believe you should receive the best services</p>
             <div class="projects-cluster">
                 <div>    
                     <div>
@@ -249,43 +255,59 @@
                         </p>
                         </div>
                     </div>
-                    <div class="form-container">
-                        <input
-                        id="fullName"
-                        type="text"
-                        placeholder="Full Name"
-                        required
-                        />
-                        <div>
-                            <input id="email" type="email" placeholder="e-mail" required />
+                    <form action="https://formsubmit.co/christianthehandyman89@gmail.com" method="POST">
+                        <input type="text" name="_honey" value="" style="display:none;">
+                        <input type="hidden" name="_captcha" value="false">                    
+                        <input type="hidden" name="_next" value="http://127.0.0.1:5500/success.html" >
+                        <div class="form-container">
                             <input
-                                id="phone"
-                                type="phone"
-                                placeholder="Phone Number"
-                                required
+                            id="fullName"
+                            type="text"
+                            class="contact-input"
+                            placeholder="Full Name"
+                            required
+                            name="fullName"
                             />
+                            <div>
+                                <input 
+                                    id="email" 
+                                    type="email" 
+                                    class="contact-input"
+                                    placeholder="e-mail" 
+                                    required />
+                                <input
+                                    id="phone"
+                                    type="number"
+                                    class="contact-input"
+                                    placeholder="Phone Number"
+                                    required
+                                    name="phone"
+                                />
+                            </div>
+                            <input
+                            id="address"
+                            type="text"
+                            class="contact-input"
+                            placeholder="Address"
+                            required
+                            name="address"
+                            />
+                            <textarea
+                            id="message"
+                            class="contact-input"
+                            cols="30"
+                            rows="10"
+                            placeholder="Your message for us"
+                            required
+                            name="message"
+                            ></textarea>
+                            <div class="user-test">
+                                <h4>What is two + two?</h4>                
+                                <input id="user-test" class="quote-input-test contact-input" type="number" name="result" placeholder="result" required />
+                            </div>
+                            <button id="send-message" class="btn-dark" disabled>Send</button>
                         </div>
-                        <input
-                        id="address"
-                        type="text"
-                        placeholder="Address"
-                        required
-                        />
-                        <textarea
-                        id="message"
-                        name=""
-                        id=""
-                        cols="30"
-                        rows="10"
-                        placeholder="Your message for us"
-                        required
-                        ></textarea>
-                        <div class="user-test">
-                            <h4>What is two + two?</h4>                
-                            <input id="user-test" class="quote-input" type="number" placeholder="result" required />
-                        </div>
-                        <button class="btn-dark">Send</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>

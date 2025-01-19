@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIK Home Services</title>
+    <link rel="icon" href="resources/favicon/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- google icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        body{
+            position: relative;
+            font-family: "Lato", serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            letter-spacing: 2px;
+        }
+
+        body > div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        body > div > p{
+            margin-top: 25px;
+        }
+
+        .redirect-bar{
+            margin: 25px 0;
+            height: 20px;
+            width: 500px;
+            background-color: #777;
+        }
+        
+        .redirect-progress{
+            height: 100%;
+            width: 0%;
+            background-color: rgb(15, 125, 13);
+        }
+
+        .redirect-progress{
+            animation: growWidth 7s ease;
+        }
+        @keyframes growWidth {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Success!</h1>
+        <h2>You will hear from us soon!</h2>
+
+        <p>redirect back to home page</p>
+        <div class="redirect-bar">
+            <div class="redirect-progress"></div>
+        </div>
+    </div>
+    <script>
+        setTimeout(() => {
+        window.location.href = './index.html';
+        }, 7000);
+    </script>
+</body>
+</html>

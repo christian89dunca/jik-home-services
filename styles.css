@@ -11,6 +11,15 @@ body{
     align-items: center;
     letter-spacing: 2px;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 
 .mb-50{
     margin-bottom: 50px;
@@ -192,6 +201,16 @@ button:hover{
     margin: 0;
 }
 
+.modal .modal-box #next:disabled,
+.modal .modal-box #next:hover:disabled,
+.modal .modal-box #send-quote:disabled,
+.modal .modal-box #send-quote:hover:disabled,
+#send-message:disabled,
+#send-message:hover:disabled{
+    background-color: #ccc;
+    cursor: default; 
+}
+
 .modal .modal-box .quoting-current-step-content{
     width: 100%;
     height: 450px;
@@ -259,7 +278,11 @@ button:hover{
     display: flex;
     flex-direction: row;
 }
-.modal .modal-box .quoting-current-step-content .modal-main-content.last-check > div:first-child{
+
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check > form{
+    display: flex;
+}
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check > form > div:first-child{
     border-right: 1px solid #333;
     padding-right: 25px;
     overflow: scroll;
@@ -267,6 +290,32 @@ button:hover{
     height: 100%;
     box-sizing: border-box;
 }
+
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check > form > .form-left{
+    border-right: 1px solid #333;
+}
+
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check > form input:read-only {
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 1.2rem;
+    flex: 1;
+    outline: none;
+}
+
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check > form .last-check-input-container{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.modal .modal-box .quoting-current-step-content .modal-main-content.last-check > form .last-check-input{
+    /* flex: 1; */
+    margin-right: 20px;
+}
+
+
 .modal .modal-box .quoting-current-step-content .modal-main-content.last-check h4{
     font-size: 2rem;
     margin: 25px 0 5px 0;
@@ -304,7 +353,8 @@ button:hover{
 }
 
 .modal .quoting-current-step-content .contact-form .form-container .quote-input,
-.modal .quoting-current-step-content .contact-form .form-container > div{
+.modal .quoting-current-step-content .contact-form .form-container > div,
+main .quote-input-test{
     box-sizing: border-box;
     width: 100%; 
     margin-bottom: 25px;
@@ -469,6 +519,20 @@ nav .shopping-cart-details{
 nav .shopping-cart-details.visible{
     opacity: 1;
     transition: 0.3s;
+}
+
+nav .shopping-cart .shopping-cart-badge{
+    position: absolute;
+    top:0;
+    right: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    box-sizing: content-box;
+    border-radius: 50%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav .shopping-cart-details .shopping-cart-content{
@@ -802,7 +866,7 @@ header .content-header{
     color: #fff;
 }
 
-header .content-header p{
+header .content-header p.text-light{
     text-align: center;
     margin: 10px;
     font-size: 1.7rem;
@@ -846,24 +910,76 @@ main {
 }
 
 main .banner{
+    position: relative;
     margin: 150px 0px 100px 0px;
 }
 
 main .project-banner{
-    position: relative;
     height: 250px;
     overflow: hidden;
 }
 
+main .project-banner{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top:0;
+    left:0;
+}
+
+main .project-banner h2{
+    position: relative;
+    z-index: 10;
+    color: inherit;
+}
+
+main .project-banner .banner-filter{
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: rgba(255, 255, 255, 0.0);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+main .project-banner .banner-filter:hover{
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    font-size: 1.65rem;
+    cursor: pointer;
+}
+
 main .project-banner img{
     width: 100%;
-    position: relative;
+    position: absolute;
     top: -200px;
 }
 
 main .services h2, main .projects h2, main .about-us h2, main .contact h2{
     text-align: center;
     font-size: 2.5rem;
+}
+
+main .services h2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .about-us h2 + p{
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 main .services > div{
@@ -1089,6 +1205,7 @@ main .contact .contact-content .form-container{
 }
 
 .modal, .quote-input,
+main .quote-input-test,
 main .contact .contact-content .form-container input,
 main .contact .contact-content .form-container textarea{
     padding: 10px;
