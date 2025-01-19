@@ -521,7 +521,7 @@ nav .shopping-cart-details.visible{
     transition: 0.3s;
 }
 
-nav .shopping-cart .shopping-cart-badge{
+nav .shopping-cart #shopping-cart-badge{
     position: absolute;
     top:0;
     right: 20px;
@@ -533,6 +533,7 @@ nav .shopping-cart .shopping-cart-badge{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
 }
 
 nav .shopping-cart-details .shopping-cart-content{
@@ -858,7 +859,7 @@ header .bg-header .bg-header-filter{
 
 header .content-header{
     position: absolute;
-    top: 20vh;
+    top: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;

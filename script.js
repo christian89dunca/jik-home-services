@@ -40,8 +40,6 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 
     const menuItems = document.getElementsByClassName('menu-item');
     const menuDetailsBox = document.getElementById('menu-details');
-    const contactForm = document.getElementsByClassName('contact-form');
-    const sendMessage = document.getElementById('send-message');
 
     const services = await fetchServices();
 
@@ -85,6 +83,24 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         }   
     }
     
+    function resetQuote(){
+        
+        currentQuoteStep = 0;
+        currentQuote = {
+            serviceTitle: [],
+            timeline: [],
+            personalDetails:{
+                fullName: '',
+                email: '',
+                phone: '',
+                address: '',
+                state: '',
+                zipcode: ''
+            },
+            result: 4
+        };
+        updateShoppingCart();
+    }
     function renderMenuContent(service) {
         const allServices = [];
         services.forEach(categ => {
@@ -156,6 +172,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             })
             Array.from(document.getElementsByClassName('quote-from-scratch')).forEach(element => {
                 element.addEventListener('click', ()=>{
+                    resetQuote();
                     showModal();
                 })
             })
@@ -165,6 +182,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         modal.classList.add('visible');
         updateModalBtns(valid);
         renderQuoteSteps();
+        updateProgress()
         modal.addEventListener('click', (e)=>{
             if (e.target.contains(modalFilter) ) {
                 modal.classList.remove('visible');
@@ -175,14 +193,18 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         })
     }
 
-    function updateSteps(e){
-        currentQuoteStep = e.target.id === "next" ? ++currentQuoteStep : --currentQuoteStep;
+    function updateProgress(){
         document.getElementById('indicator').style.width = (100/3) * currentQuoteStep + '%';
-        e.target.id === 'back' ? updateModalBtns(true) : updateModalBtns();
-        renderQuoteSteps();
         Array.from(quoteSteps).forEach((step, index) => {
             step.classList[`${(index <= currentQuoteStep ? 'add' : 'remove')}`]('active');
         })
+    }
+
+    function updateSteps(e){
+        currentQuoteStep = e.target.id === "next" ? ++currentQuoteStep : --currentQuoteStep;
+        updateProgress();
+        e.target.id === 'back' ? updateModalBtns(true) : updateModalBtns();
+        renderQuoteSteps();
         updateShoppingCart();
     }
 
@@ -466,7 +488,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     function updateShoppingCart(){
         if (currentQuote.serviceTitle.length > 0){
             const badge = document.createElement('div');
-            badge.className = 'shopping-cart-badge';
+            badge.id = 'shopping-cart-badge';
             const badgeText = document.createElement('p');
             badgeText.innerText = currentQuote.serviceTitle.length;
             badgeText.style.paddingLeft = '2px';
@@ -485,11 +507,22 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                 currentQuoteStep--
                 showModal(true);
             })
+        } else {
+            document.getElementById('shopping-cart-badge')?.remove();
+            shoppingCartDetails.innerHTML = `
+            <div class="shopping-cart-content">
+                <p>you have no projects to submit a quote request for</p>
+            </div>
+            <div class="shopping-cart-btn">
+                <button disabled class="btn-dark">See Project</button>
+            </div>
+            `
         }
     }
     
     Array.from(document.getElementsByClassName('quote-from-scratch')).forEach(element => {
         element.addEventListener('click', ()=>{
+            resetQuote();
             showModal();
         })
     })
