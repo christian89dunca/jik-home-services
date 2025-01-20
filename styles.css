@@ -11,8 +11,11 @@ body{
     align-items: center;
     letter-spacing: 2px;
 }
-section{
+main{
     width: 100vw;
+}
+section{
+    width: 100%;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -849,7 +852,7 @@ header .bg-header{
 header .bg-header img{
     position: relative;
     top: -30px;
-    width: 100%;
+    width: 120%;
     z-index: -1;
 }
 
@@ -1253,6 +1256,10 @@ main .contact .contact-form .form-container .user-test{
     margin-top: 10px;
 }
 
+main .contact .contact-form .form-container .user-test h4{
+    margin: 15px 0;
+}
+
 main .contact .contact-content .form-container button{
     width: 100%;
     margin: 0;
@@ -1263,8 +1270,9 @@ footer{
     background-color: #000;
     color: #fff;
     width: 100%;
-    height: 100px;
+    min-height: 100px;
     z-index: 10;
+    padding-bottom: 15px;
 }
 
 footer section{
@@ -1279,7 +1287,10 @@ footer .some{
 
 footer .some ul{
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
+    justify-content: center;
+    gap:15px;
 }
 
 footer .some ul li{
@@ -1292,17 +1303,23 @@ footer .some a{
     color: #fff;
 }
 
-/* Extra small devices (portrait phones, less than 576px) */
-@media screen and (max-width: 575.98px) {
-    body {
-      background-color: lightblue;
-    }
-  }
-  
   /* Small devices (landscape phones, 576px and up) */
-  @media screen and (min-width: 576px) and (max-width: 767.98px) {
-    body {
-      background-color: lightgreen;
+  @media screen and (max-width: 471.98px) {
+    nav #logo-container .txt{
+        display: none;
+    }
+    html{
+        font-size: 12px;
+    }
+
+    nav p{
+        font-size: 1.5rem;
+    }
+    nav #logo-container .txt p + p{
+        font-size: 1.1rem;
+    }
+    button {
+        font-size: 1.8rem;
     }
     .modal .modal-box{
         width: 85vw;
@@ -1311,10 +1328,19 @@ footer .some a{
         height: 100%;
     }
     header .bg-header img{
-        height: 100%;
+        height: 120%;
         width: auto;
         min-width: 100%;
     }
+
+    main p, main h4{
+        font-size: 1.8rem !important;
+    }
+
+    main .banner{
+        display: none;
+    }
+
     main .services > div{
         flex-direction: column;
         align-items: center;
@@ -1361,6 +1387,11 @@ footer .some a{
         padding: 0 !important;
     }
 
+    main .projects button{
+        margin: 0;
+        margin-top: 50px;
+    }
+    
     main .about-us .projects-cluster{
         flex-direction: column;
         box-sizing: border-box;
@@ -1371,16 +1402,42 @@ footer .some a{
         width: 100%;
     }
 
-    main .about-us .projects-cluster > div:first-child > div:first-child{
-        flex-direction: row-reverse;
+    main .about-us .projects-cluster > div:first-child > div:first-child,
+    main .about-us .projects-cluster> div:first-child > div{
+        flex-direction: column;
         box-sizing: border-box;
     }
 
+    main .about-us .projects-cluster> div:first-child > div,
+    main .about-us > div:last-child{
+        height: auto !important;
+    }
+
+    .about-us .projects-cluster > div:first-child .about-project-image,
+    main .about-us > div:last-child .about-project-image{
+        display: block;
+        height: 70%;
+        overflow: hidden;
+    }
+
+    .about-us .projects-cluster > div:first-child .about-project-image img,
+    main .about-us > div:last-child .about-project-image img{
+        height: auto !important;
+        width: 100% !important;
+        top: 0;
+    }
+
+    main .about-us > div:last-child{
+        flex-direction: column;
+    }
+
+    main .about-us .project-content{
+        padding: 15px !important;
+        text-align: center;
+    }
     main .project-content{
         box-sizing: border-box;
     }
-
-    
 
     main .projects > h2{
         margin-bottom: 50px;
@@ -1417,14 +1474,26 @@ footer .some a{
         box-sizing: content-box;
         padding: 25px;
     }
+
+    main .contact .contact-content .form-container > div{
+        flex-direction: column;
+        gap: 0;
+    }
   }
-  
-  /* Medium devices (tablets, 768px and up) */
-  @media screen and (min-width: 768px) and (max-width: 991.98px) {
-    body {
-      background-color: lightcoral;
+  @media screen and (min-width: 472px) and (max-width: 813.98px) {
+    html{
+        font-size: 12px;
     }
 
+    nav p{
+        font-size: 1.5rem;
+    }
+    nav #logo-container .txt p + p{
+        font-size: 1.1rem;
+    }
+    button {
+        font-size: 1.8rem;
+    }
     .modal .modal-box{
         width: 85vw;
     }
@@ -1432,10 +1501,19 @@ footer .some a{
         height: 100%;
     }
     header .bg-header img{
-        height: 100%;
+        height: 120%;
         width: auto;
         min-width: 100%;
     }
+
+    main p, main h4{
+        font-size: 1.8rem !important;
+    }
+
+    main .banner{
+        display: none;
+    }
+
     main .services > div{
         flex-direction: column;
         align-items: center;
@@ -1443,9 +1521,182 @@ footer .some a{
 
     main .services > div article{
         margin-bottom: 100px;
-        width: 
-        600px;
+        width: 100vw;
         height: 300px;
+        box-sizing: border-box;
+    }
+
+    main .projects > div,
+    main .projects > p,
+    main .about-us > div,
+    main .about-us > p{
+        box-sizing: border-box;
+    }
+
+    main .projects > div:nth-child(2),
+    main .projects > div:nth-child(3){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main .projects > div:nth-child(2) > div,
+    main .projects > div:nth-child(3) > div{
+        width: 100% !important;
+        text-align: center;
+    }
+    main .projects > div:nth-child(2) > div h3,
+    main .projects > div:nth-child(3) > div h3{
+        margin-top: 25px;
+    }
+    main .projects > div:nth-child(2) > div p,
+    main .projects > div:nth-child(3) > div p{
+        padding: 0 25px;
+        box-sizing: border-box;
+    }
+
+    main .projects > div:nth-child(2) > div:last-child,
+    main .projects > div:nth-child(3) > div:last-child{
+        padding: 0 !important;
+    }
+
+    main .projects button{
+        margin: 0;
+        margin-top: 50px;
+    }
+    
+    main .about-us .projects-cluster{
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    main .about-us .projects-cluster > div:first-child,
+    main .about-us .projects-cluster > div:nth-child(2){
+        width: 100%;
+    }
+
+    main .about-us .projects-cluster > div:first-child > div:first-child,
+    main .about-us .projects-cluster> div:first-child > div{
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    main .about-us .projects-cluster> div:first-child > div,
+    main .about-us > div:last-child{
+        height: auto !important;
+    }
+
+    .about-us .projects-cluster > div:first-child .about-project-image,
+    main .about-us > div:last-child .about-project-image{
+        display: block;
+        height: 70%;
+        overflow: hidden;
+    }
+
+    .about-us .projects-cluster > div:first-child .about-project-image img,
+    main .about-us > div:last-child .about-project-image img{
+        height: auto !important;
+        width: 100% !important;
+        top: 0;
+    }
+
+    main .about-us > div:last-child{
+        flex-direction: column;
+    }
+
+    main .about-us .project-content{
+        padding: 15px !important;
+        text-align: center;
+    }
+    main .project-content{
+        box-sizing: border-box;
+    }
+
+    main .projects > h2{
+        margin-bottom: 50px;
+    }
+    main .projects h3{
+        line-height: 2.5rem;
+    }
+
+    main .about-us .projects-cluster> div:first-child > div{
+        height: 300px;
+    }
+
+    main .about-us .projects-cluster > div:first-child .about-project-image img{
+        width: auto;
+        height: 100%;
+    }
+
+    main .about-us .projects-cluster> div:last-child .about-project-image{
+        display: flex;
+    }
+
+
+    main .contact .contact-content{
+        flex-direction: column;
+    }
+
+    main .contact .contact-content .contact-details{
+        width: 100%;
+        min-width: none;
+        border: none;
+    }
+
+    main .contact .contact-content .contact-form{
+        box-sizing: content-box;
+        padding: 25px;
+    }
+
+    main .contact .contact-content .form-container > div{
+        flex-direction: column;
+        gap: 0;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media screen and (min-width: 814px) and (max-width: 1199.98px) {
+    html{
+      font-size: 12px;
+    }
+
+    nav p{
+        font-size: 1.5rem;
+    }
+    nav #logo-container .txt p + p{
+        font-size: 1.1rem;
+    }
+    button {
+        font-size: 1.8rem;
+    }
+    .modal .modal-box{
+        width: 85vw;
+    }
+    header .bg-header{
+        height: 100%;
+    }
+    header .bg-header img{
+        height: 120%;
+        width: auto;
+        min-width: 100%;
+    }
+    main p, main h4{
+        font-size: 1.8rem !important;
+    }
+    main .banner{
+        display: none;
+    }
+
+    main .services > div{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    main .services > div article{
+        margin-bottom: 25px;
+        width: 500;
+        height: 225px;
     }
 
     main .projects > div,
@@ -1463,6 +1714,19 @@ footer .some a{
         line-height: 2.5rem;
     }
 
+    main .projects > div:last-child{
+        margin-top: 25px;
+    }
+
+    main .projects button{
+        margin: 0;
+        margin-top: 50px;
+    }
+
+    main .projects > div > div:first-child img{
+        height: 100%;
+    }
+
     main .about-us .projects-cluster> div:first-child > div{
         height: 300px;
     }
@@ -1491,14 +1755,9 @@ footer .some a{
         box-sizing: content-box;
         padding: 25px;
     }
-  }
-  
-  /* Large devices (desktops, 992px and up) */
-  @media screen and (min-width: 992px) and (max-width: 1199.98px) {
-    body {
-      background-color: lightgoldenrodyellow;
+    footer{
+        font-size: 1.8rem;
     }
-
   }
   
   /* Extra large devices (large desktops, 1200px and up) */
