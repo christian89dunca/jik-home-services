@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         } else{
             menuDetailsBox.innerHTML = `<div class=contactBox>
             <h2>${serviceFlat[service].title.toUpperCase()}</h2>
-            <h2>${serviceFlat[service].subTitle.toUpperCase()}</h2>
+            <h2 class="pn">${serviceFlat[service].subTitle.toUpperCase()}</h2>
             <h3>${serviceFlat[service].description}</h3>
             </div>
             `

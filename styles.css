@@ -26,7 +26,10 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
-
+.pn{
+    text-decoration: none;
+    color: inherit;
+}
 .mb-50{
     margin-bottom: 50px;
 }
@@ -582,6 +585,11 @@ nav .shopping-cart-btn button:disabled{
 
 }
 
+#menu-opened a{
+    text-decoration: none;
+    color: inherit;
+}
+
 #menu-opened > div{
     height:100%;
     position: absolute;
@@ -872,6 +880,7 @@ header .content-header{
     justify-content: center;
     align-self: center;
     color: #fff;
+    padding: 0 25px;
 }
 
 header .content-header p.text-light{
@@ -904,9 +913,9 @@ header .content-header button{
     margin-top: 0px;
     color: #fff;
     font-weight: bold;
-    width: 400px;
     align-self: center;
     margin: 25px auto;
+    width: auto;
 }
 
 header .content-header button:hover{
@@ -1303,8 +1312,27 @@ footer .some a{
     color: #fff;
 }
 
+@media screen and (max-width: 1199.98){
+    #menu-opened{
+        display: flex;
+        flex-direction: column;
+    }
+    #menu-opened > div:first-child{
+        position: relative;
+        width: 100%;
+        background-color: red !important;
+
+    }
+
+    #menu-opened > div:last-child{
+        position: relative;
+        background-color: red !important;
+
+    }
+}
   /* Small devices (landscape phones, 576px and up) */
   @media screen and (max-width: 471.98px) {
+    
     nav #logo-container .txt{
         display: none;
     }
@@ -1331,6 +1359,50 @@ footer .some a{
         height: 120%;
         width: auto;
         min-width: 100%;
+    }
+
+    #menu-opened{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: scroll;
+    }
+    #menu-opened > div:first-child{
+        position: relative;
+        overflow: visible;
+        width: 100%;
+        height: auto;
+        padding: 50px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    #menu-opened > div:first-child i{
+        display: none;
+    }
+    #menu-opened > div:first-child > ul{
+        width: 100%;
+    }
+    #menu-opened > div:first-child > ul > ul{
+        border-bottom: 1px solid #eee;
+    }
+    #menu-opened > div:first-child > ul li{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #menu-opened > div:first-child ul li{
+        padding-left: 0;
+        width: 100%;
+    }
+
+    #menu-opened > div:last-child{
+        position: relative;
+        width: 100vw;
+        height: auto;
+        overflow: visible;
     }
 
     main p, main h4{
@@ -1479,6 +1551,11 @@ footer .some a{
         flex-direction: column;
         gap: 0;
     }
+
+    main .contact .contact-content .contact-details{
+        width: auto;
+        min-width: fit-content;
+    }
   }
   @media screen and (min-width: 472px) and (max-width: 813.98px) {
     html{
@@ -1504,6 +1581,50 @@ footer .some a{
         height: 120%;
         width: auto;
         min-width: 100%;
+    }
+
+    #menu-opened{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: scroll;
+    }
+    #menu-opened > div:first-child{
+        position: relative;
+        overflow: visible;
+        width: 100%;
+        height: auto;
+        padding: 50px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    #menu-opened > div:first-child i{
+        display: none;
+    }
+    #menu-opened > div:first-child > ul{
+        width: 100%;
+    }
+    #menu-opened > div:first-child > ul > ul{
+        border-bottom: 1px solid #eee;
+    }
+    #menu-opened > div:first-child > ul li{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #menu-opened > div:first-child ul li{
+        padding-left: 0;
+        width: 100%;
+    }
+
+    #menu-opened > div:last-child{
+        position: relative;
+        width: 100vw;
+        height: auto;
+        overflow: visible;
     }
 
     main p, main h4{
@@ -1671,6 +1792,49 @@ footer .some a{
     }
     .modal .modal-box{
         width: 85vw;
+    }
+    #menu-opened{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: scroll;
+    }
+    #menu-opened > div:first-child{
+        position: relative;
+        overflow: visible;
+        width: 100%;
+        height: auto;
+        padding: 50px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    #menu-opened > div:first-child i{
+        display: none;
+    }
+    #menu-opened > div:first-child > ul{
+        width: 100%;
+    }
+    #menu-opened > div:first-child > ul > ul{
+        border-bottom: 1px solid #eee;
+    }
+    #menu-opened > div:first-child > ul li{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #menu-opened > div:first-child ul li{
+        padding-left: 0;
+        width: 100%;
+    }
+
+    #menu-opened > div:last-child{
+        position: relative;
+        width: 100vw;
+        height: auto;
+        overflow: visible;
     }
     header .bg-header{
         height: 100%;
