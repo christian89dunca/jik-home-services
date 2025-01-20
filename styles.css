@@ -11,6 +11,9 @@ body{
     align-items: center;
     letter-spacing: 2px;
 }
+section{
+    width: 100vw;
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -194,7 +197,8 @@ button:hover{
     display: flex;
     justify-content: space-between;
     margin: 15px 0;
-
+    background-color: #fff;
+    position: relative;
 }
 
 .modal .modal-box .modal-btns button{
@@ -567,7 +571,7 @@ nav .shopping-cart-btn button:disabled{
     transition: 0.3s;
     position: fixed;
     top:90px;
-    right:0;
+    left:0;
     width: 100vw;
     height: 100vh;
     z-index: 0;
@@ -869,9 +873,15 @@ header .content-header{
 
 header .content-header p.text-light{
     text-align: center;
-    margin: 10px;
+    margin: 5px;
     font-size: 1.7rem;
     font-weight: 300;
+}
+
+header .content-header p.text-small{
+    text-align: center;
+    margin: 5px;
+    font-size: 1.7rem;
 }
 
 header .content-header p + p{
@@ -893,7 +903,7 @@ header .content-header button{
     font-weight: bold;
     width: 400px;
     align-self: center;
-    margin: 50px auto;
+    margin: 25px auto;
 }
 
 header .content-header button:hover{
@@ -1281,3 +1291,219 @@ footer .some a{
     margin: 25px;
     color: #fff;
 }
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+  
+  /* Small devices (landscape phones, 576px and up) */
+  @media screen and (min-width: 576px) and (max-width: 767.98px) {
+    body {
+      background-color: lightgreen;
+    }
+    .modal .modal-box{
+        width: 85vw;
+    }
+    header .bg-header{
+        height: 100%;
+    }
+    header .bg-header img{
+        height: 100%;
+        width: auto;
+        min-width: 100%;
+    }
+    main .services > div{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main .services > div article{
+        margin-bottom: 100px;
+        width: 100vw;
+        height: 300px;
+        box-sizing: border-box;
+    }
+
+    main .projects > div,
+    main .projects > p,
+    main .about-us > div,
+    main .about-us > p{
+        box-sizing: border-box;
+    }
+
+    main .projects > div:nth-child(2),
+    main .projects > div:nth-child(3){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main .projects > div:nth-child(2) > div,
+    main .projects > div:nth-child(3) > div{
+        width: 100% !important;
+        text-align: center;
+    }
+    main .projects > div:nth-child(2) > div h3,
+    main .projects > div:nth-child(3) > div h3{
+        margin-top: 25px;
+    }
+    main .projects > div:nth-child(2) > div p,
+    main .projects > div:nth-child(3) > div p{
+        padding: 0 25px;
+        box-sizing: border-box;
+    }
+
+    main .projects > div:nth-child(2) > div:last-child,
+    main .projects > div:nth-child(3) > div:last-child{
+        padding: 0 !important;
+    }
+
+    main .about-us .projects-cluster{
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    main .about-us .projects-cluster > div:first-child,
+    main .about-us .projects-cluster > div:nth-child(2){
+        width: 100%;
+    }
+
+    main .about-us .projects-cluster > div:first-child > div:first-child{
+        flex-direction: row-reverse;
+        box-sizing: border-box;
+    }
+
+    main .project-content{
+        box-sizing: border-box;
+    }
+
+    
+
+    main .projects > h2{
+        margin-bottom: 50px;
+    }
+    main .projects h3{
+        line-height: 2.5rem;
+    }
+
+    main .about-us .projects-cluster> div:first-child > div{
+        height: 300px;
+    }
+
+    main .about-us .projects-cluster > div:first-child .about-project-image img{
+        width: auto;
+        height: 100%;
+    }
+
+    main .about-us .projects-cluster> div:last-child .about-project-image{
+        display: flex;
+    }
+
+
+    main .contact .contact-content{
+        flex-direction: column;
+    }
+
+    main .contact .contact-content .contact-details{
+        width: 100%;
+        min-width: none;
+        border: none;
+    }
+
+    main .contact .contact-content .contact-form{
+        box-sizing: content-box;
+        padding: 25px;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media screen and (min-width: 768px) and (max-width: 991.98px) {
+    body {
+      background-color: lightcoral;
+    }
+
+    .modal .modal-box{
+        width: 85vw;
+    }
+    header .bg-header{
+        height: 100%;
+    }
+    header .bg-header img{
+        height: 100%;
+        width: auto;
+        min-width: 100%;
+    }
+    main .services > div{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main .services > div article{
+        margin-bottom: 100px;
+        width: 
+        600px;
+        height: 300px;
+    }
+
+    main .projects > div,
+    main .projects > p,
+    main .about-us > div,
+    main .about-us > p{
+        margin: 0 25px;
+        box-sizing: border-box;
+    }
+
+    main .projects > h2{
+        margin-bottom: 50px;
+    }
+    main .projects h3{
+        line-height: 2.5rem;
+    }
+
+    main .about-us .projects-cluster> div:first-child > div{
+        height: 300px;
+    }
+
+    main .about-us .projects-cluster > div:first-child .about-project-image img{
+        width: auto;
+        height: 100%;
+    }
+
+    main .about-us .projects-cluster> div:last-child .about-project-image{
+        display: flex;
+    }
+
+
+    main .contact .contact-content{
+        flex-direction: column;
+    }
+
+    main .contact .contact-content .contact-details{
+        width: 100%;
+        min-width: none;
+        border: none;
+    }
+
+    main .contact .contact-content .contact-form{
+        box-sizing: content-box;
+        padding: 25px;
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    body {
+      background-color: lightgoldenrodyellow;
+    }
+
+  }
+  
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media screen and (min-width: 1200px) {
+    body {
+      background-color: lightpink;
+    }
+  }

@@ -497,6 +497,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             shoppingCartDetails.innerHTML = `
             <div class="shopping-cart-content">
                 <p>${currentQuote.serviceTitle.join(' | ')}</p>
+                <p style="border-top: 1px solid #ccc; padding-top: 10px; margin-top: 10px;">${currentQuote.timeline}</p>
             </div>
             <div class="shopping-cart-btn">
                 <button id="shopping-cart-btn" class="btn-dark">See Project</button>
@@ -507,7 +508,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                 currentQuoteStep--
                 showModal(true);
             })
-        } else {
+        } else{
             document.getElementById('shopping-cart-badge')?.remove();
             shoppingCartDetails.innerHTML = `
             <div class="shopping-cart-content">
