@@ -26,7 +26,7 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
-.pn{
+header .content-header p + p.pn{
     text-decoration: none;
     color: inherit;
 }
@@ -1346,6 +1346,10 @@ footer .some a{
     nav #logo-container .txt p + p{
         font-size: 1.1rem;
     }
+
+    nav #shopping-cart{
+        display: none;
+    }
     button {
         font-size: 1.8rem;
     }
@@ -1359,6 +1363,9 @@ footer .some a{
         height: 120%;
         width: auto;
         min-width: 100%;
+    }
+    header .content-header{
+        top: unset;
     }
 
     #menu-opened{
@@ -1403,6 +1410,40 @@ footer .some a{
         width: 100vw;
         height: auto;
         overflow: visible;
+    }
+    
+    #menu-opened .menu-details .service-steps .tabContentBox{
+        display: flex;
+        align-items: center;
+        justify-self: center;
+    }
+
+    #menu-opened .menu-details > div:first-child{
+        padding: 50px 0;
+    }
+    #menu-opened > div:last-child{
+        padding-bottom: 100px;
+    }
+
+    #menu-opened .menu-details .menu-img-container img{
+        height: 100%;
+        width: auto;
+    }
+
+    #menu-opened .menu-details .service-steps{
+        flex-direction: row;
+        padding: 0 25px;
+        box-sizing: border-box;
+    }
+    #menu-opened .menu-details .service-steps .stepsBox{
+        flex-direction: column;
+    }
+    #menu-opened .menu-details .service-steps .stepsBox .menu-tab{}
+    header .bg-header{
+        height: 100%;
+    }
+    #menu-opened .menu-details .menu-img-container{
+        width: 100%;
     }
 
     main p, main h4{
@@ -1449,7 +1490,9 @@ footer .some a{
         margin-top: 25px;
     }
     main .projects > div:nth-child(2) > div p,
-    main .projects > div:nth-child(3) > div p{
+    main .projects > div:nth-child(2) > div h3,
+    main .projects > div:nth-child(3) > div p,
+    main .projects > div:nth-child(3) > div h3{
         padding: 0 25px;
         box-sizing: border-box;
     }
@@ -1462,6 +1505,14 @@ footer .some a{
     main .projects button{
         margin: 0;
         margin-top: 50px;
+    }
+
+    main .about-us > p,
+    main .about-us > h2{
+        padding: 0 25px;
+    }
+    main .about-us .projects-cluster> div:last-child button{
+        float: none;
     }
     
     main .about-us .projects-cluster{
@@ -1574,8 +1625,33 @@ footer .some a{
     .modal .modal-box{
         width: 85vw;
     }
+
+    #menu-opened .menu-details > div:first-child{
+        padding: 50px 0;
+    }
+    #menu-opened > div:last-child{
+        padding-bottom: 100px;
+    }
+
+    #menu-opened .menu-details .service-steps{
+        flex-direction: row;
+        padding: 0 25px;
+        box-sizing: border-box;
+    }
+    #menu-opened .menu-details .service-steps .stepsBox{
+        flex-direction: column;
+    }
+    #menu-opened .menu-details .service-steps .tabContentBox{
+        display: flex;
+        align-items: center;
+        justify-self: center;
+    }
+    
     header .bg-header{
         height: 100%;
+    }
+    #menu-opened .menu-details .menu-img-container{
+        width: 100%;
     }
     header .bg-header img{
         height: 120%;
