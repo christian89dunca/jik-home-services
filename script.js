@@ -325,6 +325,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                     services.map((service, index) => {
                         if(index < (services.length - 1)){
                             return `
+                            <div>
                             <h3>${Object.keys(service).join('').split(/(?=[A-Z])/).map(el => el[0].toUpperCase() + el.slice(1)).join(' ')}</h3>
                             <div class="service-options-group">
                                 ` + 
@@ -335,6 +336,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                                 }).join('')
                                 +
                                 `
+                            </div>
                             </div>
                         `
                         }
@@ -475,8 +477,10 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                     </div>
                     </div>
                     <div class="user-test">
+                        <div>
                         <h4>What is two + two?</h4>                
                         <input id="user-test" class="quote-input result" type="number" name="result" placeholder="result"/>
+                        </div>
                         <button type="submit" id="send-quote" class="btn-dark" disabled>Request Quote</button>
                     </div>
                     </form>

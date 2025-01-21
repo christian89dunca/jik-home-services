@@ -1353,9 +1353,115 @@ footer .some a{
     button {
         font-size: 1.8rem;
     }
-    .modal .modal-box{
-        width: 85vw;
+
+    .modal .modal-box .quoting-current-step-content .modal-main-content{
+        /* margin: 25px 0; */
     }
+
+    .modal .contact-form{
+        width: 100%;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content.last-check{
+        width: 100%;
+        margin: 0;
+        /* margin-top: 25px; */
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content.last-check h4{
+        margin-top: 10px;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content.last-check > form{
+        flex-direction: column;
+        width: 100%;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content .user-test{
+        width: auto;
+        margin: 0;
+        margin-top: 25px;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content .user-test > div{
+        display: flex;
+    }
+
+    .modal .modal-box .quoting-current-step-content .modal-main-content .user-test > div h4{
+        font-size: 1.5rem;
+        margin-right: 25px;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content .user-test input{
+        width: 50px;
+        margin: 0;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content .user-test button{
+        margin: 0;
+        margin-top: 10px;
+        padding: 5px;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content.last-check > form > .form-left{
+        width: 100%;
+        border: none;
+        text-align: center;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content.last-check > form > .form-left input{
+        text-align: center;
+    }
+    .modal .modal-box .quoting-progress-steps{
+        display: none;
+    }
+    .modal .modal-box{
+        width: 75vw;
+        height: auto;
+        padding: 25px;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content .all-services{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content .all-services > div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+        width: 100%;
+    }
+    .modal .modal-box .quoting-current-step-content h2{
+        font-size: 2rem;
+    }
+
+    .modal .modal-box .quoting-current-step-content h3{
+        font-size: 1.5rem;
+    }
+
+    .modal .modal-box .quoting-current-step-content .service-option, 
+    .modal .modal-box .quoting-current-step-content .timeline-option{
+        font-size: 1.2rem;
+        padding: 5px;
+        margin: 7.5px 0;
+        flex: 1;
+        text-align: center;
+    }
+
+    .modal .modal-box .quoting-current-step-content .service-options-group, 
+    .modal .modal-box .quoting-current-step-content .timeline-options-group{
+        gap: 0;
+        column-gap: 25px;
+        flex-direction: column;
+        border-left: 1px solid #ccc;   
+        padding-left: 10px;
+        /* margin-left: 10px; */
+        flex: 1;
+    }
+    .modal .modal-box .quoting-current-step-content .timeline-options-group{
+        flex: none;
+        border: none;
+    }
+
+    .modal .modal-box .modal-btns button{
+        padding: 5px;
+    }
+    
+    
     header .bg-header{
         height: 100%;
     }
@@ -1438,7 +1544,7 @@ footer .some a{
     #menu-opened .menu-details .service-steps .stepsBox{
         flex-direction: column;
     }
-    #menu-opened .menu-details .service-steps .stepsBox .menu-tab{}
+    
     header .bg-header{
         height: 100%;
     }
@@ -1623,8 +1729,22 @@ footer .some a{
         font-size: 1.8rem;
     }
     .modal .modal-box{
-        width: 85vw;
+        width: 75vw;
+        height: auto;
     }
+
+    .modal .modal-box .quoting-progress-steps{
+        display: none;
+    }
+
+    .modal .modal-box .quoting-current-step-content .service-options-group{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        gap:0;
+        column-gap: 50px;
+
+    } 
+    .modal .modal-box .quoting-current-step-content .timeline-options-group{}
 
     #menu-opened .menu-details > div:first-child{
         padding: 50px 0;
@@ -1646,7 +1766,7 @@ footer .some a{
         align-items: center;
         justify-self: center;
     }
-    
+
     header .bg-header{
         height: 100%;
     }
