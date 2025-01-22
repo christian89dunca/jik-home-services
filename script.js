@@ -215,7 +215,8 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             document.getElementById('next').style.display = "block";
         } else if(currentQuoteStep >= 3)  {
             document.getElementById('next').style.display = "none";
-            document.getElementById('back').style.visibility = "visible";
+            document.getElementById('back').style = "visibility: visible; margin: 0 auto;";
+            
         } else {
             document.getElementById('next').style.display = "block";
             document.getElementById('back').style.visibility = "visible";
