@@ -1312,24 +1312,6 @@ footer .some a{
     color: #fff;
 }
 
-@media screen and (max-width: 1199.98){
-    #menu-opened{
-        display: flex;
-        flex-direction: column;
-    }
-    #menu-opened > div:first-child{
-        position: relative;
-        width: 100%;
-        background-color: red !important;
-
-    }
-
-    #menu-opened > div:last-child{
-        position: relative;
-        background-color: red !important;
-
-    }
-}
   /* Small devices (landscape phones, 576px and up) */
   @media screen and (max-width: 471.98px) {
     
@@ -1357,6 +1339,7 @@ footer .some a{
     .modal .contact-form{
         width: 100%;
     }
+
     .modal .modal-box .quoting-current-step-content .modal-main-content.last-check{
         width: 100%;
         margin: 0;
@@ -1404,8 +1387,15 @@ footer .some a{
     }
     .modal .modal-box{
         width: 75vw;
-        height: auto;
+        height: 90vh;
         padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .modal .modal-box .quoting-current-step-content, 
+    .modal .modal-box .quoting-current-step-content .modal-main-content{
+        height: 100%
     }
     .modal .modal-box .quoting-current-step-content .modal-main-content .all-services{
         width: 100%;
@@ -1451,6 +1441,9 @@ footer .some a{
     .modal .modal-box .quoting-current-step-content .timeline-options-group{
         flex: none;
         border: none;
+    }
+    .modal .modal-box .modal-btns{
+        margin-bottom: 0;
     }
 
     .modal .modal-box .modal-btns button{
@@ -1783,8 +1776,15 @@ footer .some a{
     }
     .modal .modal-box{
         width: 75vw;
-        height: auto;
+        height: 90vh;
         padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .modal .modal-box .quoting-current-step-content, 
+    .modal .modal-box .quoting-current-step-content .modal-main-content{
+        height: 100%
     }
     .modal .modal-box .quoting-current-step-content .modal-main-content .all-services{
         width: 100%;
@@ -1832,6 +1832,10 @@ footer .some a{
         border: none;
     }
 
+    .modal .modal-box .modal-btns{
+        margin-bottom: 0;
+    }
+    
     .modal .modal-box .modal-btns button{
         padding: 5px;
     }
