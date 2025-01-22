@@ -1387,15 +1387,17 @@ footer .some a{
     }
     .modal .modal-box{
         width: 75vw;
-        height: 90vh;
+        height: 85vh;
         padding: 25px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    .modal .modal-box .quoting-current-step-content, 
-    .modal .modal-box .quoting-current-step-content .modal-main-content{
+    .modal .modal-box .quoting-current-step-content{
         height: 100%
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content{
+        height: auto;
     }
     .modal .modal-box .quoting-current-step-content .modal-main-content .all-services{
         width: 100%;
@@ -1776,15 +1778,17 @@ footer .some a{
     }
     .modal .modal-box{
         width: 75vw;
-        height: 90vh;
+        height: 85vh;
         padding: 25px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    .modal .modal-box .quoting-current-step-content, 
-    .modal .modal-box .quoting-current-step-content .modal-main-content{
+    .modal .modal-box .quoting-current-step-content{
         height: 100%
+    }
+    .modal .modal-box .quoting-current-step-content .modal-main-content{
+        height: auto;
     }
     .modal .modal-box .quoting-current-step-content .modal-main-content .all-services{
         width: 100%;
@@ -1835,7 +1839,7 @@ footer .some a{
     .modal .modal-box .modal-btns{
         margin-bottom: 0;
     }
-    
+
     .modal .modal-box .modal-btns button{
         padding: 5px;
     }
