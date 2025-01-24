@@ -1387,7 +1387,7 @@ footer .some a{
     }
     .modal .modal-box{
         width: 75vw;
-        height: 85vh;
+        height: 80vh;
         padding: 25px;
         display: flex;
         flex-direction: column;
@@ -1414,7 +1414,7 @@ footer .some a{
         width: 100%;
     }
     .modal .modal-box .quoting-current-step-content h2{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .modal .modal-box .quoting-current-step-content h3{
@@ -1778,7 +1778,7 @@ footer .some a{
     }
     .modal .modal-box{
         width: 75vw;
-        height: 85vh;
+        height: 80vh;
         padding: 25px;
         display: flex;
         flex-direction: column;
