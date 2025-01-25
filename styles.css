@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+html {
+    -webkit-text-size-adjust: 100%; /* Prevents automatic text scaling */
+  }
+
 body{
     position: relative;
     font-family: "Lato", serif;
@@ -1405,6 +1409,10 @@ footer .some a{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .modal .close-btn{
+        background-color: red;
+        color: green
     }
     .modal .modal-box .quoting-current-step-content .modal-main-content .all-services > div{
         display: flex;
