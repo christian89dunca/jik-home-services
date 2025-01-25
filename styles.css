@@ -1392,6 +1392,7 @@ footer .some a{
     .modal .modal-box{
         width: 100%;
         height: 100%;
+        box-sizing: border-box;
         padding: 25px;
         display: flex;
         flex-direction: column;
