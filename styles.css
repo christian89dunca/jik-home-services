@@ -140,8 +140,8 @@ button:hover{
 .modal .modal-box .close-x{
     position: absolute;
     top:0;
-    left:0;
-    width: 100%;
+    right:0;
+    width: 50px;
     height: 50px;
 }
 .modal .modal-box .close-x i{
@@ -1343,11 +1343,15 @@ footer .some a{
     .modal .contact-form{
         width: 100%;
     }
+    .modal .modal-box .quoting-current-step-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
     .modal .modal-box .quoting-current-step-content .modal-main-content.last-check{
         width: 100%;
         margin: 0;
-        /* margin-top: 25px; */
     }
     .modal .modal-box .quoting-current-step-content .modal-main-content.last-check h4{
         margin-top: 10px;
@@ -1390,13 +1394,13 @@ footer .some a{
         display: none;
     }
     .modal .modal-box{
-        width: 100%;
-        height: 100%;
+        width: 90vw;
+        height: 80vh;
         box-sizing: border-box;
         padding: 25px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
     }
     .modal .modal-box .quoting-current-step-content{
         height: 100%

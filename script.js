@@ -184,19 +184,19 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         modal.classList.add('visible');
         updateModalBtns(valid);
         renderQuoteSteps();
-        updateProgress()
+        updateProgress();
         ['click','ontouchstart'].forEach(evt => {
             modal.addEventListener(evt, (e)=>{
                 if (e.target.contains(modalFilter) ) {
                     modal.classList.remove('visible');
                 }
             })
-        })
+        });
         ['click','ontouchstart'].forEach(evt => {
             modalCloseBtn.addEventListener(evt, ()=>{
                 modal.classList.remove('visible');
             })
-        })
+        });
     }
 
     function updateProgress(){
