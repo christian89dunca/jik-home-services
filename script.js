@@ -435,7 +435,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                     <form action="https://formsubmit.co/christianthehandyman89@gmail.com" method="POST">
                     <input type="text" name="_honey" value="" style="display:none;">
                     <input type="hidden" name="_captcha" value="false">                    
-                    <input type="hidden" name="_next" value="${window.location.origin + 'success.html'}" >
+                    <input type="hidden" name="_next" value="${window.location.origin + '/success.html'}" >
                     <div class="form-left">
                     ` 
                     + 
