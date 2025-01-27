@@ -432,7 +432,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                     <h2>Please check if all details are correct</h2>
 
                     <div class="modal-main-content last-check">
-                    <form action="https://formsubmit.co/christianthehandyman89@gmail.com" method="POST">
+                    <form action="https://formsubmit.co/contact@jikhomeservice.com" method="POST">
                     <input type="text" name="_honey" value="" style="display:none;">
                     <input type="hidden" name="_captcha" value="false">                    
                     <input type="hidden" name="_next" value="${window.location.origin + '/success.html'}" >
