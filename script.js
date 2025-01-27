@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     copyrightYear.innerText = currnetMoment.getFullYear();
     shoppingCartDetails.style.display = 'none';
 
-
+    console.log(window.location.origin)
     function triggerMenu(){
         if(closedBurger.classList.contains('visible')){
             closedBurger.classList.remove('visible');
