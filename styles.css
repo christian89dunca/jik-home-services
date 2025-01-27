@@ -1402,8 +1402,8 @@ footer .some a{
         display: none;
     }
     .modal .modal-box{
-        width: 90vw;
-        height: 80vh;
+        width: 90%;
+        height: 80%;
         box-sizing: border-box;
         padding: 25px;
         display: flex;
