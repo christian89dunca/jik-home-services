@@ -171,11 +171,9 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                 })
             })
             Array.from(document.getElementsByClassName('quote-from-scratch')).forEach(element => {
-                ['click','ontouchstart'].forEach(evt => {
-                    element.addEventListener(evt, ()=>{
-                        resetQuote();
-                        showModal();
-                    })
+                element.addEventListener('click', ()=>{
+                    resetQuote();
+                    showModal();
                 })
             })
     }
@@ -185,17 +183,15 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         updateModalBtns(valid);
         renderQuoteSteps();
         updateProgress();
-        ['click','ontouchstart'].forEach(evt => {
-            modal.addEventListener(evt, (e)=>{
-                if (e.target.contains(modalFilter) ) {
-                    modal.classList.remove('visible');
-                }
-            })
-        });
-        ['click','ontouchstart'].forEach(evt => {
-            modalCloseBtn.addEventListener(evt, ()=>{
+        
+        modal.addEventListener('click', (e)=>{
+            if (e.target.contains(modalFilter) ) {
                 modal.classList.remove('visible');
-            })
+            }
+        });
+        
+        modalCloseBtn.addEventListener('click', ()=>{
+            modal.classList.remove('visible');
         });
     }
 
@@ -256,8 +252,8 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 
             updateSelection('serviceTitle', options);
 
-            options.forEach((option) => ['click','ontouchstart'].forEach(evt => {
-                option.addEventListener(evt, (e)=>{
+            options.forEach((option) => {
+                option.addEventListener('click', (e)=>{
                     if(e.target === option && !option.classList.contains('selected')){
                         option.classList.add('selected');
                         currentQuote.serviceTitle.push(e.target.innerText);
@@ -268,14 +264,14 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                     updateModalBtns(currentQuote.serviceTitle.length > 0);
     
                 })
-            }));
+            });
         }
         if(className === "timeline-option"){
 
             updateSelection('timeline', options);
 
-            options.forEach((option) => ['click', 'ontouchstart'].forEach(evt => {
-                option.addEventListener(evt, (e)=>{
+            options.forEach((option) => {
+                option.addEventListener('click', (e)=>{
                     if(e.target === option && !option.classList.contains('selected')){
                         options.forEach(option => option.classList.remove('selected'));
                         option.classList.add('selected');
@@ -284,7 +280,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                     }
                     updateModalBtns(currentQuote.timeline.length > 0);
                 })
-            }));
+            });
         } 
         if(className = 'quote-input'){
 
@@ -303,23 +299,21 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             options.forEach(option => option.addEventListener('input', () => {
                 if(option.value == currentQuote.result){
                     document.getElementById('send-quote').removeAttribute("disabled");
-                    ['click', 'ontouchstart'].forEach(evt => {{
-                        document.getElementById('send-quote').addEventListener(evt, () => {
-                            currentQuote = {
-                                serviceTitle: [],
-                                timeline: [],
-                                personalDetails:{
-                                    fullName: '',
-                                    email: '',
-                                    phone: '',
-                                    address: '',
-                                    state: '',
-                                    zipcode: ''
-                                },
-                                result: 4
-                            };
-                        })
-                    }})
+                    document.getElementById('send-quote').addEventListener(evt, () => {
+                        currentQuote = {
+                            serviceTitle: [],
+                            timeline: [],
+                            personalDetails:{
+                                fullName: '',
+                                email: '',
+                                phone: '',
+                                address: '',
+                                state: '',
+                                zipcode: ''
+                            },
+                            result: 4
+                        };
+                    });
                 } else {
                     document.getElementById('send-quote')?.setAttribute('disabled', 'true');
                 }
@@ -521,11 +515,10 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             </div>
             `
 
-            ['click', 'ontouchstart'].forEach(evt => {
-                document.getElementById('shopping-cart-btn').addEventListener(evt, ()=>{
-                    currentQuoteStep--
-                    showModal(true);
-                })
+            
+            document.getElementById('shopping-cart-btn').addEventListener('click', ()=>{
+                currentQuoteStep--
+                showModal(true);
             })
             
         } else{
@@ -542,39 +535,31 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     }
     
     Array.from(document.getElementsByClassName('quote-from-scratch')).forEach(element => {
-        ['click', 'ontouchstart'].forEach(evt => {
-            element.addEventListener(evt, ()=>{
-                resetQuote();
-                showModal();
-            })
+        element.addEventListener('click', ()=>{
+            resetQuote();
+            showModal();
         })
-        
     })
 
     Array.from(modalBtns).forEach(btn => {
-        ['click', 'ontouchstart'].forEach(evt => {
-            btn.addEventListener(evt, updateSteps);
-        })
-        
-    })
+        btn.addEventListener('click', updateSteps);
+    });
 
-    ['click', 'ontouchstart'].forEach(evt => {
-        body.addEventListener(evt, (e)=>{
-            if (!shoppingCart.contains(e.target) ) {
-                shoppingCartDetails.classList.remove('visible');
-            setTimeout(()=> {
-                shoppingCartDetails.style.display = 'none';
-            }, 100)
-            }
-        })
-    })
+    
+    body.addEventListener('click', (e)=>{
+        if (!shoppingCart.contains(e.target) ) {
+            shoppingCartDetails.classList.remove('visible');
+        setTimeout(()=> {
+            shoppingCartDetails.style.display = 'none';
+        }, 100)
+        }
+    });
     
 
-    ['click', 'ontouchstart'].forEach(evt => {
-        logoContainer.addEventListener(evt, ()=>{
-            window.location.href = 'index.html'
-        })
-    })
+    
+    logoContainer.addEventListener('click', ()=>{
+        window.location.href = 'index.html';
+    });
 
     shoppingCartIcon.addEventListener('mouseenter', ()=>{
         shoppingCartDetails.style.display = 'flex';
@@ -583,32 +568,27 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         }, 100)
         
     })
-    ['click', 'ontouchstart'].forEach(evt => {
-        shoppingCartIcon.addEventListener(evt, ()=>{
-            shoppingCartDetails.style.display = 'flex';
-            setTimeout(()=> {
-                shoppingCartDetails.classList.add('visible');
-            }, 100)
-        })
-    })
+    
+    shoppingCartIcon.addEventListener('click', ()=>{
+        shoppingCartDetails.style.display = 'flex';
+        setTimeout(()=> {
+            shoppingCartDetails.classList.add('visible');
+        }, 100)
+    });
 
-    ['click', 'ontouchstart'].forEach(evt => {
-        burgerMenu.addEventListener(evt, () => {
-            triggerMenu();
-            if(window.scrollY < 1){
-                triggerNavbarStyle(openedMenu.classList.contains('visible'));
-            }
-        })
-    })
+    burgerMenu.addEventListener('click', () => {
+        triggerMenu();
+        if(window.scrollY < 1){
+            triggerNavbarStyle(openedMenu.classList.contains('visible'));
+        }
+    });
 
-    ['click', 'ontouchstart'].forEach(evt => {
-        banner.addEventListener(evt, () => {
-            triggerMenu();
-            if(window.scrollY < 1){
-                triggerNavbarStyle(openedMenu.classList.contains('visible'));
-            }
-        })
-    })
+    banner.addEventListener('click', () => {
+        triggerMenu();
+        if(window.scrollY < 1){
+            triggerNavbarStyle(openedMenu.classList.contains('visible'));
+        }
+    });
 
 
     const contactInputs = Array.from(document.getElementsByClassName('contact-input'));
